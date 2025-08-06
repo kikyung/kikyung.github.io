@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Logging in...</title>
+  </head>
+  <body>
+    <script>
+      // Parse the query string
+      var params = {};
+      window.location.search.replace(
+        /[?&]+([^=&]+)=([^&]*)/gi,
+        function (str, key, value) {
+          params[key] = value;
+        }
+      );
+
+      // Set token in localStorage
+      if (params['token']) {
+        localStorage.setItem('netlify-cms-auth', params['token']);
+        window.location.href = '/admin/';
+      } else {
+        document.body.innerHTML = '<p>Login failed.</p>';
+      }
+    </script>
+  </body>
+</html>
