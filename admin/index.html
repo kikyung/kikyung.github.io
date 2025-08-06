@@ -3,9 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <title>Content Manager</title>
+    <!-- Decap CMS 스크립트 -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   </head>
   <body>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <!-- 여기가 중요! CMS가 삽입될 DOM 요소 -->
+    <script>
+      window.CMS_MANUAL_INIT = true;
+    </script>
+    <div id="nc-root"></div>
     <script>
       CMS.init();
     </script>
