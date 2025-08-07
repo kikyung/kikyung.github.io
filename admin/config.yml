@@ -2,6 +2,7 @@ backend:
   name: git-gateway
   repo: kikyung/kikyung.github.io
   branch: main
+  publish_mode: editorial_workflow
 
 media_folder: "assets/img/uploads"
 public_folder: "/assets/img/uploads"
