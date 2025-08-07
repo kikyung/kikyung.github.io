@@ -2,9 +2,6 @@ backend:
   name: github
   repo: kikyung/kikyung.github.io
   branch: main
-  auth_scope: repo
-  base_url: https://authenticating-github-login.netlify.app
-  auth_endpoint: /auth
 
 media_folder: "assets/img/uploads"
 public_folder: "/assets/img/uploads"
