@@ -1,5 +1,5 @@
 backend:
-  name: github
+  name: git-gateway
   repo: kikyung/kikyung.github.io
   branch: main
   publish_mode: editorial_workflow
