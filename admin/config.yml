@@ -12,12 +12,10 @@ collections:
     label: "Posts"
     folder: "_posts"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{fields.slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-        - { label: "Title", name: "title", widget: "string" }
-        - { label: "Slug (영문)", name: "slug", widget: "string", hint: "URL용 영문 이름 (예: domain-driven-design)" }
-        - { label: "Permalink (선택)", name: "permalink", widget: "string", required: false }
-        - { label: "Date", name: "date", widget: "datetime" }
-        - { label: "Categories", name: "categories", widget: "list", default: ["Blog"] }
-        - { label: "Tags", name: "tags", widget: "list" }
-        - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Categories", name: "categories", widget: "list", default: ["ETC"] }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Body", name: "body", widget: "markdown" }
