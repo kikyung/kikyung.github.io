@@ -19,3 +19,4 @@ collections:
       - { label: "Categories", name: "categories", widget: "list", default: ["ETC"] }
       - { label: "Tags", name: "tags", widget: "list" }
       - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Text Color", name: "text_color", widget: "color", enableAlpha: true }
