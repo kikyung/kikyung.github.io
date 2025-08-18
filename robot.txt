@@ -1,5 +1,10 @@
 User-agent: *
+Allow: /
 
-Disallow: /admin/
-
+# Sitemap
 Sitemap: https://kikyung.github.io/sitemap.xml
+
+# Disallow specific paths (선택사항)
+Disallow: /admin/
+# Disallow: /_layouts/
+# Disallow: /_includes/
