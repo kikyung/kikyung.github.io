@@ -1,5 +1,5 @@
 ---
-title: Imposter Syndrome (가면 증후군)
+title: 가면 증후군 Imposter Syndrome
 date: 2025-08-22T01:27:00.000+09:00
 categories:
   - 성장
