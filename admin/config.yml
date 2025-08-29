@@ -10,7 +10,7 @@ public_folder: "/assets/img/uploads"
 collections:
   - name: "posts"
     label: "Posts"
-    folder: "_posts/{{year}}/{{month}}"
+    folder: "_posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
