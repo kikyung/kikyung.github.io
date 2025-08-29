@@ -226,17 +226,17 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
-    year: /:year/
-    month: /:year/:month/
+    year: /posts/:year/
+    month: /posts/:year/:month/
   # 년/월 아카이브 설정
   year:
     path: ':year'
     layout: archive
-    permalink: '/:year/'
+    permalink: '/posts/:year/'
   month:
     path: ':year/:month'
     layout: archive
-    permalink: '/:year/:month/'
+    permalink: '/posts/:year/:month/'
 
 plugins:
   - jekyll-sitemap    
