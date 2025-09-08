@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://kikyung.github.io/sitemap.xml
+Disallow: /admin/
