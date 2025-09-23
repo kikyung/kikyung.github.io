@@ -111,6 +111,18 @@
 
   <!-- Scripts -->
 
+  <!-- Prefer light as first-visit default while keeping theme toggle visible -->
+  <script>
+    (function () {
+      try {
+        var key = 'mode';
+        if (!sessionStorage.getItem(key)) {
+          sessionStorage.setItem(key, 'light');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
   <script src="{{ '/assets/js/dist/theme.min.js' | relative_url }}"></script>
 
   {% include js-selector.html lang=lang %}
