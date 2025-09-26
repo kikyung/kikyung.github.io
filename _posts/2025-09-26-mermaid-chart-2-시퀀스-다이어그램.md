@@ -8,7 +8,7 @@ tags:
   - mermaid
   - diagram
 ---
-## 시퀀스 다이어그램이란?
+## 1. 시퀀스 다이어그램이란?
 
 > 시퀀스 다이어그램은 시스템의 여러 요소(액터, 객체)들이 시간 순서에 따라 어떻게 메시지를 주고받는지 보여주는 UML 다이어그램의 일종입니다.
 
@@ -16,7 +16,7 @@ tags:
 * 프로세스 분석: **회원가입**이나 **결제** 같은 비즈니스 로직이 어떤 단계로 진행되고, 중간에 예외 처리는 어떻게 되는지 명확히 할 때.
 * 코드 리뷰 & 인수인계: 새로 들어온 팀원에게 **복잡한 레거시 시스템의 데이터 흐름을 가장 빠르게 이해시킬 때**.
 
-## 기본 문법
+## 2. 기본 문법
 
 Mermaid에서 시퀀스 다이어그램을 작성하는 가장 기본적인 문법은 다음과 같습니다:
 
@@ -29,6 +29,7 @@ sequenceDiagram
 ```
 
 **코드:**
+
 ```md
 sequenceDiagram
     participant A as 액터A
@@ -37,9 +38,9 @@ sequenceDiagram
     B-->>A: 응답 메시지
 ```
 
-## 액터와 파티시펀트
+## 3. 액터(Actor)와 파티시펀트(Participant)
 
-### 기본 파티시펀트 정의
+### 파티시펀트 정의
 
 ```mermaid
 sequenceDiagram
@@ -57,6 +58,7 @@ sequenceDiagram
 ```
 
 **코드:**
+
 ```md
 sequenceDiagram
     participant User
@@ -86,6 +88,7 @@ sequenceDiagram
 ```
 
 **코드:**
+
 ```md
 sequenceDiagram
     actor User as 사용자
@@ -94,7 +97,6 @@ sequenceDiagram
     User->>System: 요청
     System-->>User: 응답
 ```
-
 
 ### 그룹핑/박스
 
@@ -121,6 +123,7 @@ sequenceDiagram
 ```
 
 **코드:**
+
 ```md
 sequenceDiagram
     box rgb(200, 220, 255) 클라이언트 영역
@@ -141,8 +144,7 @@ sequenceDiagram
     Browser-->>User: 페이지 렌더링
 ```
 
-
-## 메시지와 화살표
+## 4. 메시지와 화살표
 
 Mermaid는 다양한 메시지 화살표 타입을 지원합니다:
 
@@ -182,6 +184,7 @@ sequenceDiagram
 ```
 
 **코드:**
+
 ```md
 sequenceDiagram
     participant Client as 클라이언트
@@ -202,8 +205,7 @@ sequenceDiagram
     Client<<->>Server: 양방향 통신
 ```
 
-
-## 활성화와 비활성화
+## 5. 활성화와 비활성화
 
 액터의 활성화 상태를 표현할 수 있습니다:
 
@@ -225,6 +227,7 @@ sequenceDiagram
 ```
 
 **코드:**
+
 ```md
 sequenceDiagram
     participant User as 사용자
@@ -242,8 +245,7 @@ sequenceDiagram
     Note over User, DB: 사용자 인증 프로세스
 ```
 
-
-## 고급 기능
+## 6. 고급 기능
 
 ### 루프 (Loops)
 
@@ -263,6 +265,7 @@ sequenceDiagram
 ```
 
 **코드:**
+
 ```md
 sequenceDiagram
     participant User as 사용자
@@ -277,7 +280,6 @@ sequenceDiagram
         end
     end
 ```
-
 
 ### 조건문 (Alt/Opt)
 
@@ -301,6 +303,7 @@ sequenceDiagram
 ```
 
 **코드:**
+
 ```md
 sequenceDiagram
     participant User as 사용자
@@ -319,7 +322,6 @@ sequenceDiagram
         Auth-->>User: 계정 잠김 안내
     end
 ```
-
 
 ### 병렬 처리 (Parallel)
 
@@ -344,6 +346,7 @@ sequenceDiagram
 ```
 
 **코드:**
+
 ```md
 sequenceDiagram
     participant User as 사용자
@@ -363,7 +366,6 @@ sequenceDiagram
     
     API-->>User: 회원가입 완료
 ```
-
 
 ### 크리티컬 섹션
 
@@ -389,6 +391,7 @@ sequenceDiagram
 ```
 
 **코드:**
+
 ```md
 sequenceDiagram
     participant User as 사용자
@@ -410,7 +413,6 @@ sequenceDiagram
     end
 ```
 
-
 ### 브레이크 (예외 처리)
 
 ```mermaid
@@ -429,6 +431,7 @@ sequenceDiagram
 ```
 
 **코드:**
+
 ```md
 sequenceDiagram
     participant User as 사용자
@@ -443,7 +446,6 @@ sequenceDiagram
         System-->>User: 시스템 오류 안내
     end
 ```
-
 
 ### 배경 하이라이팅
 
@@ -471,6 +473,7 @@ sequenceDiagram
 ```
 
 **코드:**
+
 ```md
 sequenceDiagram
     participant User as 사용자
@@ -494,8 +497,7 @@ sequenceDiagram
     end
 ```
 
-
-## 실제 사용 예제
+## 7. 실제 사용 예제
 
 ### 🛒 주문 프로세스 다이어그램(온라인 쇼핑몰)
 
@@ -532,6 +534,7 @@ sequenceDiagram
 ```
 
 **코드:**
+
 ```md
 sequenceDiagram
     participant Customer as 고객
@@ -564,8 +567,7 @@ sequenceDiagram
     end
 ```
 
-
-## 마무리
+## 8. 마무리
 
 > Mermaid 시퀀스 다이어그램은 단순히 그림을 그리는 도구가 아니라, 복잡한 시스템의 **'설명서'**를 코드로 만드는 행위입니다. 저도 처음에는 익숙하지 않아서 잠깐 헤맸지만, 조금씩 작성해 보면 금방 익숙해 질것 같습니다.
 
