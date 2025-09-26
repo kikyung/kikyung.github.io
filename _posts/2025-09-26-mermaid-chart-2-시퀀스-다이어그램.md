@@ -483,25 +483,29 @@ sequenceDiagram
     participant Frontend as 쇼핑몰
     participant Payment as 결제시스템
     participant Inventory as 재고관리
+    participant Shipping as 배송시스템
+    participant Email as 이메일서비스
     
-    Customer->>+Frontend: 상품 주문
-    Frontend->>+Inventory: 재고 확인
+    Customer->>Frontend: 상품 주문
+    Frontend->>Inventory: 재고 확인
     
     alt 재고 있음
-        Inventory-->>-Frontend: 재고 확인 완료
-        Frontend->>+Payment: 결제 요청
+        Inventory-->>Frontend: 재고 확인 완료
+        Frontend->>Payment: 결제 요청
         
         alt 결제 성공
-            Payment-->>-Frontend: 결제 완료
-            Frontend->>Inventory: 재고 차감 (동기)
-            Frontend-->>-Customer: 주문 완료 및 이메일 발송
+            Payment-->>Frontend: 결제 완료
+            Frontend->>Inventory: 재고 차감
+            Frontend->>Shipping: 배송 요청
+            Frontend->>Email: 주문 확인 이메일
+            Frontend-->>Customer: 주문 완료
         else 결제 실패
-            Payment-->>-Frontend: 결제 실패
-            Frontend-->Customer: 결제 실패 안내
+            Payment-->>Frontend: 결제 실패
+            Frontend-->>Customer: 결제 실패 안내
         end
     else 재고 부족
-        Inventory-->>-Frontend: 재고 부족
-        Frontend-->Customer: 재고 부족 안내
+        Inventory-->>Frontend: 재고 부족
+        Frontend-->>Customer: 재고 부족 안내
     end
 ```
 
@@ -511,25 +515,29 @@ sequenceDiagram
     participant Frontend as 쇼핑몰
     participant Payment as 결제시스템
     participant Inventory as 재고관리
+    participant Shipping as 배송시스템
+    participant Email as 이메일서비스
     
-    Customer->>+Frontend: 상품 주문
-    Frontend->>+Inventory: 재고 확인
+    Customer->>Frontend: 상품 주문
+    Frontend->>Inventory: 재고 확인
     
     alt 재고 있음
-        Inventory-->>-Frontend: 재고 확인 완료
-        Frontend->>+Payment: 결제 요청
+        Inventory-->>Frontend: 재고 확인 완료
+        Frontend->>Payment: 결제 요청
         
         alt 결제 성공
-            Payment-->>-Frontend: 결제 완료
-            Frontend->>Inventory: 재고 차감 (동기)
-            Frontend-->>-Customer: 주문 완료 및 이메일 발송
+            Payment-->>Frontend: 결제 완료
+            Frontend->>Inventory: 재고 차감
+            Frontend->>Shipping: 배송 요청
+            Frontend->>Email: 주문 확인 이메일
+            Frontend-->>Customer: 주문 완료
         else 결제 실패
-            Payment-->>-Frontend: 결제 실패
-            Frontend-->Customer: 결제 실패 안내
+            Payment-->>Frontend: 결제 실패
+            Frontend-->>Customer: 결제 실패 안내
         end
     else 재고 부족
-        Inventory-->>-Frontend: 재고 부족
-        Frontend-->Customer: 재고 부족 안내
+        Inventory-->>Frontend: 재고 부족
+        Frontend-->>Customer: 재고 부족 안내
     end
 ```
 
