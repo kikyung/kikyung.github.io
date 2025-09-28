@@ -26,6 +26,16 @@ classDiagram
   }
 ```
 
+```md
+classDiagram
+  class User {
+    +string name
+    +string email
+    +login()
+    +logout()
+  }
+```
+
 * `+` : public (공개)
 * `-` : private (비공개)  
 * `#` : protected (보호)
@@ -58,7 +68,35 @@ classDiagram
   }
   
   User <|-- Admin
-  User ||--|| UserProfile
+  User -- UserProfile
+```
+
+```md
+classDiagram
+  class User {
+    +string name
+    +string email
+    +string password
+    +login()
+    +logout()
+    +updateProfile()
+  }
+  
+  class Admin {
+    +string role
+    +manageUsers()
+    +deleteUser()
+  }
+  
+  class UserProfile {
+    +string firstName
+    +string lastName
+    +string phone
+    +updateInfo()
+  }
+  
+  User <|-- Admin
+  User -- UserProfile
 ```
 
 이 예제에서는:
@@ -71,7 +109,7 @@ classDiagram
 
 ```mermaid
 classDiagram
-  class Customer {
+  class Customer["고객"] {
     +string customerId
     +string name
     +string email
@@ -87,7 +125,7 @@ classDiagram
     +updateStock()
   }
   
-  class Order {
+  class Order["주문"] {
     +string orderId
     +date orderDate
     +decimal totalAmount
@@ -99,16 +137,16 @@ classDiagram
     +decimal unitPrice
   }
   
-  Customer ||--o{ Order : places
-  Order ||--o{ OrderItem : contains
-  Product ||--o{ OrderItem : "ordered as"
+  Customer "1" o-- "many" Order : 주문건
+  Order "1" o-- "many" OrderItem : contains
+  Product "1" o-- "many" OrderItem : 구매 상품
 ```
 
 이 예제에서는:
 
-* 고객이 여러 주문을 할 수 있습니다 (1:N 관계)
-* 주문은 여러 주문 항목을 포함할 수 있습니다 (1:N 관계)
-* 상품은 여러 주문 항목에 포함될 수 있습니다 (1:N 관계)
+* 고객이 여러 주문을 할 수 있습니다.
+* 주문은 여러 주문 항목을 포함할 수 있습니다.
+* 상품은 여러 주문 항목에 포함될 수 있습니다.
 
 ## 3. 클래스 간 관계 표기법
 
@@ -122,6 +160,17 @@ classDiagram
 | 집합  | `o--`   | 부분-전체 (약한 소유) | `Company o-- Employee` |
 | 합성  | `*--`   | 부분-전체 (강한 소유) | `Car *-- Engine`       |
 | 의존  | `..>`   | 사용 관계         | `Order ..> Payment`    |
+| 살채화  | `<|..>` | 구현 관계        | `Payment <!.. CreditCardPayment` |
+
+```mermaid
+classDiagram
+classA <|-- classB
+classC *-- classD
+classE o-- classF
+classG <-- classH
+classK <.. classL
+classM <|.. classN
+```
 
 ### 관계의 방향성
 
@@ -129,10 +178,10 @@ classDiagram
 
 ```mermaid
 classDiagram
-  class Student
-  class Course
+  Student
+  Course
   
-  Student "1..*" --> "0..*" Course : enrolls
+  Student "1..*" --> "0..*" Course : 등록
 ```
 
 이 경우 학생은 1명 이상이 한 과목에 등록할 수 있고, 한 과목은 0명 이상의 학생이 등록할 수 있음을 나타냅니다.
