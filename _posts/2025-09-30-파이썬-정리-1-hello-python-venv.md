@@ -9,7 +9,7 @@ tags:
   - venv
   - pip
 ---
-# 파이썬 설치 및 기초 - "Hello, Python!"
+# 파이썬 설치 및 기초
 
 ## 1. 목표
 
