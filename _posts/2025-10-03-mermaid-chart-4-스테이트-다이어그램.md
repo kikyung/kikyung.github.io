@@ -217,6 +217,38 @@ stateDiagram-v2
   }
 ```
 
+## 방향 명령문(LR)
+```mermaid
+stateDiagram-v2
+    direction LR
+    [*] --> A
+    A --> B
+    B --> C
+    state B {
+      direction LR
+      a --> b
+    }
+    B --> D
+    C --> [*]
+    D --> [*]
+```
+
+```md
+stateDiagram-v2
+    direction LR
+    [*] --> A
+    A --> B
+    B --> C
+    state B {
+      direction LR
+      a --> b
+    }
+    B --> D
+    C --> [*]
+    D --> [*]
+```
+
+
 ## 모델링 팁
 
 * 이벤트/조건/액션을 라벨로 일관되게 표기합니다. `event[guard]/action` 형식을 권장합니다.
