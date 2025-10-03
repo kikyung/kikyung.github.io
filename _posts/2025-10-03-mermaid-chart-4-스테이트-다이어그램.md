@@ -87,6 +87,19 @@ stateDiagram-v2
 
 * `validate()`는 트리거되는 이벤트/동작 이름으로, `[isValid]`는 가드, `/log("ok")`는 전이 시 수행하는 액션의 예시입니다.
 
+> 위와같은 다이어그램을 활용해 보지 않아서 생소하지만 아래의 코드를 표현한 내용으로 이해하시면 될것 같습니다.
+```javascript
+// 상태: Verifying
+function onValidate(context) {
+  if (context.isValid) {      // [isValid]  ← 가드
+    log("ok");                // /log("ok") ← 액션(전이가 선택된 경우 실행)
+    return "Approved";        // 전이 대상 상태
+  } else {                    // [!isValid]
+    log("ng");                // /log("ng")
+    return "Rejected";
+  }
+}
+```
 ## 복합 상태(서브스테이트)
 
 상태 내부에 하위 상태를 정의해 복잡도를 캡슐화할 수 있습니다.
@@ -218,6 +231,7 @@ stateDiagram-v2
 ```
 
 ## 방향 명령문(LR)
+
 ```mermaid
 stateDiagram-v2
     direction LR
@@ -247,7 +261,6 @@ stateDiagram-v2
     C --> [*]
     D --> [*]
 ```
-
 
 ## 모델링 팁
 
