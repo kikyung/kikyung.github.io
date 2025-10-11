@@ -65,12 +65,12 @@ erDiagram
 
 Mermaid ERD는 크로우즈 풋(Crow's Foot) 표기법을 사용합니다.
 
-| 기호     | 의미      | 설명           |
-| ------ | ------- | ------------ |
-| `\|o`  | 0 또는 1개 | Zero or One  |
-| `\|\|` | 정확히 1개  | Exactly One  |
-| `}o`   | 0개 이상   | Zero or More |
-| `}\|`  | 1개 이상   | One or More  |
+| 기호   | 의미      | 설명           |
+| ---- | ------- | ------------ |
+| `|o` | 0 또는 1개 | Zero or One  |
+| `||` | 정확히 1개  | Exactly One  |
+| `}o` | 0개 이상   | Zero or More |
+| `}|` | 1개 이상   | One or More  |
 
 ### 관계 조합 예제
 
