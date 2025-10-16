@@ -85,6 +85,7 @@ Google Opal과 n8n은 지향하는 바가 다르지만, 근본적으로 **노코
   * **간단한 업무 자동화**나 **아이디어 프로토타이핑**이 주된 목적일 때.
       
 * **n8n을 추천하는 경우:**
+
   * **개발 경험**이 있거나, **기술팀의 지원**을 받을 수 있을 때.
   * **고도로 복잡한 비즈니스 로직** (조건부 루프, 고급 데이터 변환)을 구축해야 할 때.
   * **데이터 주권과 보안**을 최우선으로 고려하며, **대규모의 워크플로우를 무제한으로 실행**하고자 할 때.
@@ -93,5 +94,7 @@ Google Opal과 n8n은 지향하는 바가 다르지만, 근본적으로 **노코
 궁극적으로 기업의 자동화 성숙도가 높아질수록, 두 플랫폼은 **상호보완적**으로 활용될 수 있습니다. Opal로 빠르게 AI 기반 기능을 구현하고, n8n으로 핵심 백엔드 시스템과 연결하여 데이터 거버넌스를 확보하는 하이브리드 전략이 미래의 자동화 트렌드가 될 것입니다.
 
 ### 참고
-* [https://adam.holter.com/google-opal-vs-n8n-choosing-your-ai-automation-starting-point/](https://adam.holter.com/google-opal-vs-n8n-choosing-your-ai-automation-starting-point/)
-* [https://www.milesweb.com/blog/hosting/vps/google-opal-vs-n8n/](https://www.milesweb.com/blog/hosting/vps/google-opal-vs-n8n/)
+<img src="/assets/img/uploads/google_opal_sample_gen_playlist.png" width="1024"/>
+
+* <https://adam.holter.com/google-opal-vs-n8n-choosing-your-ai-automation-starting-point/>
+* <https://www.milesweb.com/blog/hosting/vps/google-opal-vs-n8n/>
