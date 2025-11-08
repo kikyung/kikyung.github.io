@@ -1,5 +1,5 @@
 ---
-title: 개념이해하기 (RAG, LangChain, MCP)
+title: RAG, LangChain, MCP 개념 이해하기
 date: 2025-11-09T02:59:00.000+09:00
 categories:
   - 개발
@@ -10,12 +10,6 @@ tags:
   - LangChain
   - MCP
 ---
-# AI 개발의 핵심 개념: RAG, LangChain, MCP 이해
-
-> AI 개발 생태계는 빠르게 진화하고 있습니다. \
-> 특히 대규모 언어 모델(LLM)을 실제 애플리케이션에 통합하는 과정에서 여러 핵심 개념들이 등장했습니다.\
-> **RAG, LangChain, MCP, 그리고 Function Calling**에 대해 살펴보겠습니다.
-
 ## 1. RAG (Retrieval-Augmented Generation): LLM의 지식 확장
 
 > RAG는 LLM이 학습 데이터에 없는 최신 정보나 특정 도메인 지식에 접근할 수 있도록 하는 기술입니다. 마치 시험을 볼 때 교과서를 참고할 수 있게 하는 것과 같습니다.
