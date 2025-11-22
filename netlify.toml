@@ -1,0 +1,20 @@
+[build]
+  # Jekyll 빌드 명령어
+  command = "bundle exec jekyll build"
+  
+  # 빌드 출력 디렉토리
+  publish = "_site"
+  
+  # 참고: favicon.ico는 Jekyll 플러그인(_plugins/copy-favicon.rb)을 통해 자동으로 복사됩니다
+
+[build.environment]
+  # Ruby 버전 (Gemfile에서 확인된 버전 사용)
+  RUBY_VERSION = "3.3"
+  
+  # Jekyll 환경 변수
+  JEKYLL_ENV = "production"
+
+# 빌드 실패 시 이전 버전 유지 (Netlify 대시보드에서도 설정 가능)
+# Netlify 대시보드: Site settings > Build & deploy > Deploy settings
+# "Stop auto publishing" 옵션 활성화 권장
+
