@@ -1,5 +1,5 @@
 ---
-title: RAG, LangChain, MCP 개념 이해하기
+title: RAG, FC, LangChain, MCP 개념 이해하기
 date: 2025-11-09T02:59:00.000+09:00
 categories:
   - 개발
