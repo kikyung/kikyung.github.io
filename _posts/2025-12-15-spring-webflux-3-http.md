@@ -13,7 +13,7 @@ tags:
 * 어노테이션 기반 WebFlux 컨트롤러의 기본 문법 숙지 
 * 리액티브 타입(Mono/Flux)을 HTTP API에  적용
 * ResponseEntity + 리액티브 조합으로 상태 코드 제어하는 패턴
-* Server-Sent Events, 지연 응답으로 비동기/스트리밍의 예시
+* Server-Sent Events, 지연 응답으로 비동기, 스트리밍의 예시
 * WebTestClient로 엔드포인트를 통합 테스트
 
 ### Flux/Mono로 CRUD 예시
