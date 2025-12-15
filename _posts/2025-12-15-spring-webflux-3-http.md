@@ -57,48 +57,48 @@ public Mono<String> search(@RequestParam String keyword) {
 }
 
 /** CRUD 예시 */
-private final Map<String, Product> productStore = new ConcurrentHashMap<>();
+private final Map<String, Product> productStore = new ConcurrentHashMap<>();
 
 // 전체 조회 (Flux)
 @GetMapping("/products")
-public Flux<Product> getAllProducts() {
-    return Flux.fromIterable(productStore.values());
+public Flux<Product> getAllProducts() {
+    return Flux.fromIterable(productStore.values());
 }
 
 // 단일 조회 (Mono)
 @GetMapping("/products/{id}")
-public Mono<Product> getProduct(@PathVariable String id) {
-    return Mono.justOrEmpty(productStore.get(id));
+public Mono<Product> getProduct(@PathVariable String id) {
+    return Mono.justOrEmpty(productStore.get(id));
 }
 
-// 생성 (POST)
+// 생성 (POST)
 @PostMapping("/products")
-public Mono<Product> createProduct(@RequestBody Product product) {
-    return Mono.just(product)
-            .doOnNext(p -> productStore.create(p));
+public Mono<Product> createProduct(@RequestBody Product product) {
+    return Mono.just(product)
+            .doOnNext(p -> productStore.create(p));
 }
 
-// 수정 (PUT)
+// 수정 (PUT)
 @PutMapping("/products/{id}")
-public Mono<Product> updateProduct(@PathVariable String id,
-                                   @RequestBody Product product) {
-    return Mono.justOrEmpty(productStore.get(id))
-            .flatMap(existing -> {
-                product.setId(id);
-                productStore.put(id, product);
-                return Mono.just(product);
-            })
-            .switchIfEmpty(Mono.error(new RuntimeException("상품을 찾을 수 없습니다: " + id)));
+public Mono<Product> updateProduct(@PathVariable String id,
+                                   @RequestBody Product product) {
+    return Mono.justOrEmpty(productStore.get(id))
+            .flatMap(existing -> {
+                product.setId(id);
+                productStore.put(id, product);
+                return Mono.just(product);
+            })
+            .switchIfEmpty(Mono.error(new RuntimeException("상품을 찾을 수 없습니다: " + id)));
 }
 
 // 삭제 (DELETE)
 @DeleteMapping("/products/{id}")
-public Mono<Void> deleteProduct(@PathVariable String id) {
-    return Mono.fromRunnable(() -> productStore.remove(id));
+public Mono<Void> deleteProduct(@PathVariable String id) {
+    return Mono.fromRunnable(() -> productStore.remove(id));
 }
 
-// HttpStatus 코드 제어
-// 값이 있으면 200 OK, 없으면 404 Not Found
+// HttpStatus 코드 제어
+// 값이 있으면 200 OK, 없으면 404 Not Found
 @GetMapping("/products-with-status/{id}")
 public Mono<ResponseEntity<Product>> getProductWithStatus(@PathVariable String id) {
     return Mono.justOrEmpty(productStore.get(id))
@@ -106,14 +106,14 @@ public Mono<ResponseEntity<Product>> getProductWithStatus(@PathVariable String i
             .defaultIfEmpty(ResponseEntity.notFound().build());
 }
 
-// 스트리밍: 1초마다 문자열을 계속 push하는 스트림 응답
+// 스트리밍: 1초마다 문자열을 계속 push하는 스트림 응답
 @GetMapping(value = "/stream", produces = "text/event-stream")
 public Flux<String> streamData() {
     return Flux.interval(Duration.ofSeconds(1))
             .map(seq -> "데이터 #" + seq + " - " + System.currentTimeMillis());
 }
 
-// 지연응답: 스레드 블로킹 없이 2초 뒤 응답, 비동기 처리의 느낌
+// 지연응답: 스레드 블로킹 없이 2초 뒤 응답, 비동기 처리의 느낌
 @GetMapping("/delayed")
 public Mono<String> delayedResponse() {
     return Mono.just("2초 후 응답")
