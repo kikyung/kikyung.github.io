@@ -1,43 +1,17 @@
-# Chirpy Starter
+# kikyung.github.io
 
-[![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy)][gem]&nbsp;
-[![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)][mit]
+Jekyll 기반 개인 블로그입니다.
 
-When installing the [**Chirpy**][chirpy] theme through [RubyGems.org][gem], Jekyll can only read files in the folders
-`_data`, `_layouts`, `_includes`, `_sass` and `assets`, as well as a small part of options of the `_config.yml` file
-from the theme's gem. If you have ever installed this theme gem, you can use the command
-`bundle info --path jekyll-theme-chirpy` to locate these files.
+## 템플릿
 
-The Jekyll team claims that this is to leave the ball in the user’s court, but this also results in users not being
-able to enjoy the out-of-the-box experience when using feature-rich themes.
+[Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy) Jekyll Theme를 사용하고 있습니다.
 
-To fully use all the features of **Chirpy**, you need to copy the other critical files from the theme's gem to your
-Jekyll site. The following is a list of targets:
+## 참조
 
-```shell
-.
-├── _config.yml
-├── _plugins
-├── _tabs
-└── index.html
-```
+- [테마 문서](https://github.com/cotes2020/jekyll-theme-chirpy/wiki)
+- [테마 저장소](https://github.com/cotes2020/jekyll-theme-chirpy)
+- [Decap CMS 문서](https://decapcms.org/) - 웹 인터페이스로 포스트 작성/관리 (admin 폴더)
 
-To save you time, and also in case you lose some files while copying, we extract those files/configurations of the
-latest version of the **Chirpy** theme and the [CD][CD] workflow to here, so that you can start writing in minutes.
+## 라이선스
 
-## Usage.
-
-[theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy/wiki)
-
-## Contributing
-
-This repository is automatically updated with new releases from the theme repository. If you encounter any issues or want to contribute to its improvement, please visit the [theme repository][chirpy] to provide feedback.
-
-## License
-
-This work is published under [MIT][mit] License.
-
-[gem]: https://rubygems.org/gems/jekyll-theme-chirpy
-[chirpy]: https://github.com/cotes2020/jekyll-theme-chirpy/
-[CD]: https://en.wikipedia.org/wiki/Continuous_deployment
-[mit]: https://github.com/cotes2020/chirpy-starter/blob/master/LICENSE
+이 프로젝트는 [MIT License](https://github.com/cotes2020/chirpy-starter/blob/master/LICENSE)를 따릅니다.
