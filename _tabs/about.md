@@ -11,6 +11,7 @@ order: 4
 ## 소개
 - RXC(숙박,여행) 백엔드실 소속
 - [PRIZM](https://mweb.prizm.co.kr)
+- [Youtube Shorts Creator](https://www.youtube.com/@놀사-v3)
 
 ## 관심 분야
 - DevOps
