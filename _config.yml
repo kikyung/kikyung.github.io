@@ -23,7 +23,8 @@ description: >- # used by seo meta and the atom feed
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
-url: "https://kikyung.github.io"
+# Custom domain 사용 시 여기에 커스텀 도메인을 입력합니다.
+url: "https://blog.kikyung.com"
 
 github:
   username: kikyung # change to your GitHub username
@@ -46,7 +47,7 @@ social:
 
 # Site Verification Settings
 webmaster_verifications:
-  google: Jn1jk5_g44OQLxZVDrQV8W76NdwXcefaqpl23feCzPE # fill in your Google verification code
+  google: Oftkegqo1sEzGhewj6aOStcdVbsC1bfp-_av2TD-a9w # fill in your Google verification code
   bing: # fill in your Bing verification code
   alexa: # fill in your Alexa verification code
   yandex: # fill in your Yandex verification code

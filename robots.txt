@@ -2,4 +2,5 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 
-Sitemap: https://kikyung.github.io/sitemap.xml
+# GitHub Pages 커스텀 도메인 사용 시 sitemap 도메인도 함께 맞춰줍니다.
+Sitemap: https://blog.kikyung.com/sitemap.xml
