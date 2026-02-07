@@ -9,9 +9,9 @@ order: 4
 안녕하세요! 김기경입니다.
 
 ## 소개
-- RXC(숙박,여행) 백엔드실 소속
+- RXC 백엔드실
 - [PRIZM](https://mweb.prizm.co.kr)
-- [Youtube Shorts Creator](https://www.youtube.com/@놀사-v3)
+- [Youtube Shorts](https://www.youtube.com/@놀사-v3)
 
 ## 관심 분야
 - DevOps
