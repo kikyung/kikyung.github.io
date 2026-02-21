@@ -1,4 +1,7 @@
 ---
+slug: "20251108-1"
+redirect_from:
+  - "/posts/2025/11/개념이해하기-rag-langchain-mcp/"
 title: RAG, FC, LangChain, MCP 개념 이해하기
 date: 2025-11-09T02:59:00.000+09:00
 categories:

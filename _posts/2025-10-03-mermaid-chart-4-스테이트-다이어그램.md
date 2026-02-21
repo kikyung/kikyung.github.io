@@ -1,4 +1,7 @@
 ---
+slug: "20251003-1"
+redirect_from:
+  - "/posts/2025/10/mermaid-chart-4-스테이트-다이어그램/"
 title: "Mermaid Chart #4 - 스테이트 다이어그램"
 date: 2025-10-04T00:37:00.000+09:00
 categories:

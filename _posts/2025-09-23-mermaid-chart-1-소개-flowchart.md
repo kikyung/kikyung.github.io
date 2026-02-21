@@ -1,4 +1,7 @@
 ---
+slug: "20250923-1"
+redirect_from:
+  - "/posts/2025/09/mermaid-chart-1-소개-flowchart/"
 title: "Mermaid Chart #1 - 소개,Flowchart"
 date: 2025-09-24T01:08:00.000+09:00
 categories:

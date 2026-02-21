@@ -1,4 +1,7 @@
 ---
+slug: "20251016-1"
+redirect_from:
+  - "/posts/2025/10/google-opal과-n8n-비교/"
 title: Google Opal과 N8N 비교
 date: 2025-10-17T01:47:00.000+09:00
 categories:

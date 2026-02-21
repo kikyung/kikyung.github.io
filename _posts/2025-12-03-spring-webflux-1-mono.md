@@ -1,4 +1,7 @@
 ---
+slug: "20251203-1"
+redirect_from:
+  - "/posts/2025/12/spring-webflux-1-mono/"
 title: "Spring WebFlux #1 - Mono"
 date: 2025-12-03T01:32:00.000+09:00
 categories:
