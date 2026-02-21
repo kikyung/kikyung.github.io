@@ -1,4 +1,7 @@
 ---
+slug: "20250825-1"
+redirect_from:
+  - "/posts/2025/08/타입스크립트-정리-3-일등함수-first-class-function/"
 title: "타입스크립트 정리 #3 - 일등함수(First-Class Function)"
 date: 2025-08-26T01:05:00.000+09:00
 categories:

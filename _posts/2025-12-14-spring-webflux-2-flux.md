@@ -1,4 +1,7 @@
 ---
+slug: "20251214-1"
+redirect_from:
+  - "/posts/2025/12/spring-webflux-2-flux/"
 title: "Spring WebFlux #2 - Flux"
 date: 2025-12-15T00:41:00.000+09:00
 categories:
