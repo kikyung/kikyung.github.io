@@ -1,7 +1,4 @@
 ---
-slug: 20260307-1
-redirect_from:
-  - /posts/2026/01/세레나-serena/
 title: AI 개발 도구 비교 (Kiro, Claude, Cursor, Antigravity)
 date: 2026-03-07T01:07:00.000+09:00
 categories:
