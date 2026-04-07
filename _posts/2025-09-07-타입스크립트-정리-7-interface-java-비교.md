@@ -1,7 +1,4 @@
 ---
-slug: "20250907-2"
-redirect_from:
-  - "/posts/2025/09/타입스크립트-정리-7-interface-java-비교/"
 title: "타입스크립트 정리 #7 - Interface (java 비교)"
 date: 2025-09-08T00:12:00.000+09:00
 categories:

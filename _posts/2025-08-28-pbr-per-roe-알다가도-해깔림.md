@@ -1,7 +1,4 @@
 ---
-slug: "20250828-1"
-redirect_from:
-  - "/posts/2025/08/pbr-per-roe-알다가도-해깔림/"
 title: PBR, PER, ROE 알다가도 해깔림
 date: 2025-08-29T01:33:00.000+09:00
 categories:

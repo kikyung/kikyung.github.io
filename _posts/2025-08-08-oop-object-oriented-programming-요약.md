@@ -1,7 +1,4 @@
 ---
-slug: "20250808-1"
-redirect_from:
-  - "/posts/2025/08/oop-object-oriented-programming-요약/"
 title: OOP(Object-Oriented Programming) 요약
 date: 2025-08-08T23:31:00.000+09:00
 categories:

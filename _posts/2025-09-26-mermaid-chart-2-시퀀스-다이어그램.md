@@ -1,7 +1,4 @@
 ---
-slug: "20250926-1"
-redirect_from:
-  - "/posts/2025/09/mermaid-chart-2-시퀀스-다이어그램/"
 title: "Mermaid Chart #2 - 시퀀스 다이어그램"
 date: 2025-09-27T01:40:00.000+09:00
 categories:

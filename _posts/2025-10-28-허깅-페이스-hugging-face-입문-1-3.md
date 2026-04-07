@@ -1,7 +1,4 @@
 ---
-slug: "20251028-3"
-redirect_from:
-  - "/posts/2025/10/허깅-페이스-hugging-face-입문-1-3/"
 title: 허깅 페이스(hugging face) 입문 1/3
 date: 2025-10-29T01:01:00.000+09:00
 categories:
