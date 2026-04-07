@@ -1,7 +1,4 @@
 ---
-slug: "20251122-2"
-redirect_from:
-  - "/posts/2025/11/mermaid-chart-6-파이-차트/"
 title: "Mermaid Chart #6 - 파이 차트"
 date: 2025-11-23T02:01:00.000+09:00
 categories:

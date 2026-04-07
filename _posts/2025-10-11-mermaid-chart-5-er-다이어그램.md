@@ -1,7 +1,4 @@
 ---
-slug: "20251011-1"
-redirect_from:
-  - "/posts/2025/10/mermaid-chart-5-er-다이어그램/"
 title: "Mermaid Chart #5 - ER 다이어그램"
 date: 2025-10-11T23:47:00.000+09:00
 categories:

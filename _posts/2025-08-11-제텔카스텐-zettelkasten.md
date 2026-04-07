@@ -1,7 +1,4 @@
 ---
-slug: "20250811-2"
-redirect_from:
-  - "/posts/2025/08/제텔카스텐-zettelkasten/"
 title: 제텔카스텐 (Zettelkasten)
 date: 2025-08-12T00:58:00.000+09:00
 categories:

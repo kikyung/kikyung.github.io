@@ -1,7 +1,4 @@
 ---
-slug: "20251225-1"
-redirect_from:
-  - "/posts/2025/12/sequential-thinking-context/"
 title: Sequential Thinking & Context
 date: 2025-12-25T23:40:00.000+09:00
 categories:

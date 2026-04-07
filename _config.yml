@@ -242,7 +242,6 @@ jekyll-archives:
 
 plugins:
   - jekyll-sitemap
-  - jekyll-redirect-from
 
 # Sitemap configuration
 sitemap:

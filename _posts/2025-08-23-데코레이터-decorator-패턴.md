@@ -1,7 +1,4 @@
 ---
-slug: "20250823-1"
-redirect_from:
-  - "/posts/2025/08/데코레이터-decorator-패턴/"
 title: 데코레이터(Decorator) 패턴
 date: 2025-08-24T00:05:00.000+09:00
 categories:

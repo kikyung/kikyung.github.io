@@ -1,7 +1,4 @@
 ---
-slug: "20251215-1"
-redirect_from:
-  - "/posts/2025/12/spring-webflux-3-http/"
 title: "Spring WebFlux #3 - HTTP"
 date: 2025-12-16T01:31:00.000+09:00
 categories:
