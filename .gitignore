@@ -22,6 +22,9 @@ package-lock.json
 !.vscode/extensions.json
 !.vscode/tasks.json
 
+# Serena
+.serena
+
 # Misc
 _sass/vendors
 assets/js/dist
