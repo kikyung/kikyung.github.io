@@ -740,36 +740,44 @@ function handleCronInput() {
 function renderCronResult(container, result, expression) {
   var html = '';
 
-  // 타입 표시
-  html += '<div class="result-item">';
-  html += '<span class="result-label">형식: </span>';
-  html += '<span class="result-value">' +
+  // 형식 + 설명 카드
+  html += '<div class="tool-result-card">';
+  html += '<div class="tool-result-card-header">형식</div>';
+  html += '<div class="tool-result-card-body">';
+  html += '<span class="tool-result-card-value" style="font-family:inherit;">' +
     (result.type === '5-field' ? '5필드 (리눅스 crontab)' : '6필드 (Spring @Scheduled)') +
     '</span>';
   html += '</div>';
+  html += '</div>';
 
-  // 한국어 설명
-  html += '<div class="result-item">';
-  html += '<span class="result-label">설명: </span>';
-  html += '<span class="result-value" id="cron-description">' + result.description + '</span>';
+  html += '<div class="tool-result-card">';
+  html += '<div class="tool-result-card-header">설명</div>';
+  html += '<div class="tool-result-card-body">';
+  html += '<span class="tool-result-card-value" style="font-family:inherit;font-weight:600;font-size:1rem;">' + result.description + '</span>';
+  html += '</div>';
   html += '</div>';
 
   // 필드별 분석
-  html += '<div class="result-section"><h4>필드 분석</h4>';
+  html += '<div class="tool-result-label" style="margin:1rem 0 0.5rem;">필드 분석</div>';
+  html += '<div class="tool-result-card">';
+  html += '<table style="width:100%;border-collapse:collapse;font-size:0.85rem;">';
   for (var i = 0; i < result.fields.length; i++) {
     var f = result.fields[i];
-    html += '<div class="result-item field-analysis">';
-    html += '<span class="result-label">' + getFieldLabel(f.type) + '</span>';
-    html += '<span class="result-value"><code>' + f.raw + '</code> → ' + f.description + '</span>';
-    html += '</div>';
+    html += '<tr style="border-bottom:1px solid var(--tool-divider-color);">';
+    html += '<td style="padding:0.45rem 0.5rem;color:var(--tool-muted-color);font-weight:600;width:50px;white-space:nowrap;">' + getFieldLabel(f.type) + '</td>';
+    html += '<td style="padding:0.45rem 0.3rem;font-family:SFMono-Regular,Consolas,monospace;color:var(--tool-link-color);width:50px;text-align:center;">' + f.raw + '</td>';
+    html += '<td style="padding:0.45rem 0.5rem;color:var(--tool-text-color);">' + f.description + '</td>';
+    html += '</tr>';
   }
+  html += '</table>';
   html += '</div>';
 
   // 다음 실행 시각
   try {
     var nextExecs = getNextExecutions(expression, 5, 'Asia/Seoul');
     if (nextExecs.length > 0) {
-      html += '<div class="result-section"><h4>다음 5회 실행 시각 (KST)</h4>';
+      html += '<div class="tool-result-label" style="margin:1rem 0 0.5rem;">다음 5회 실행 시각 (KST)</div>';
+      html += '<div class="tool-result-card">';
       for (var j = 0; j < nextExecs.length; j++) {
         var dateStr;
         try {
@@ -777,8 +785,10 @@ function renderCronResult(container, result, expression) {
         } catch (e) {
           dateStr = nextExecs[j].toLocaleString('ko-KR');
         }
-        html += '<div class="result-item">';
-        html += '<span class="result-value">' + (j + 1) + '. ' + dateStr + '</span>';
+        var borderStyle = j < nextExecs.length - 1 ? 'border-bottom:1px solid var(--tool-divider-color);' : '';
+        html += '<div style="display:flex;align-items:center;gap:0.5rem;padding:0.4rem 0.2rem;font-size:0.85rem;' + borderStyle + '">';
+        html += '<span style="color:var(--tool-muted-color);font-weight:600;min-width:20px;">' + (j + 1) + '.</span>';
+        html += '<span style="font-family:SFMono-Regular,Consolas,monospace;color:var(--tool-text-color);">' + dateStr + '</span>';
         html += '</div>';
       }
       html += '</div>';

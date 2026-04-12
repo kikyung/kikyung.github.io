@@ -39,27 +39,34 @@ permalink: /tools/timestamp-converter/
 
   <!-- 현재 시각 실시간 표시 -->
   <hr class="tool-result-divider">
-  <div class="tool-result-section">
-    <div class="tool-result-label">현재 시각</div>
-    <div class="tool-result-section">
-      <div class="tool-result-label">초 (seconds)</div>
-      <div class="tool-result-value mono" id="current-timestamp-sec">-</div>
-      <button class="tool-copy-btn" onclick="copyToClipboard(document.getElementById('current-timestamp-sec').textContent)">
-        <i class="fas fa-copy"></i> 복사
+  <div class="tool-result-label" style="margin-bottom:0.6rem;">현재 시각</div>
+
+  <div class="tool-result-card">
+    <div class="tool-result-card-header">초 (seconds)</div>
+    <div class="tool-result-card-body">
+      <span class="tool-result-card-value" id="current-timestamp-sec">-</span>
+      <button class="tool-copy-btn tool-copy-btn-icon" onclick="copyToClipboard(document.getElementById('current-timestamp-sec').textContent)" title="복사">
+        <i class="fas fa-copy"></i>
       </button>
     </div>
-    <div class="tool-result-section">
-      <div class="tool-result-label">밀리초 (milliseconds)</div>
-      <div class="tool-result-value mono" id="current-timestamp-ms">-</div>
-      <button class="tool-copy-btn" onclick="copyToClipboard(document.getElementById('current-timestamp-ms').textContent)">
-        <i class="fas fa-copy"></i> 복사
+  </div>
+
+  <div class="tool-result-card">
+    <div class="tool-result-card-header">밀리초 (milliseconds)</div>
+    <div class="tool-result-card-body">
+      <span class="tool-result-card-value" id="current-timestamp-ms">-</span>
+      <button class="tool-copy-btn tool-copy-btn-icon" onclick="copyToClipboard(document.getElementById('current-timestamp-ms').textContent)" title="복사">
+        <i class="fas fa-copy"></i>
       </button>
     </div>
-    <div class="tool-result-section">
-      <div class="tool-result-label">날짜/시간 (KST)</div>
-      <div class="tool-result-value" id="current-time-readable">-</div>
-      <button class="tool-copy-btn" onclick="copyToClipboard(document.getElementById('current-time-readable').textContent)">
-        <i class="fas fa-copy"></i> 복사
+  </div>
+
+  <div class="tool-result-card">
+    <div class="tool-result-card-header">날짜/시간 (KST)</div>
+    <div class="tool-result-card-body">
+      <span class="tool-result-card-value" id="current-time-readable">-</span>
+      <button class="tool-copy-btn tool-copy-btn-icon" onclick="copyToClipboard(document.getElementById('current-time-readable').textContent)" title="복사">
+        <i class="fas fa-copy"></i>
       </button>
     </div>
   </div>

@@ -230,6 +230,7 @@ function updateColorPreview(r, g, b) {
   var preview = document.getElementById('color-preview');
   if (!preview) return;
   preview.style.backgroundColor = 'rgb(' + r + ', ' + g + ', ' + b + ')';
+  preview.style.backgroundImage = 'none';
 }
 
 /**

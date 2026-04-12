@@ -206,25 +206,41 @@ function handleDateInput() {
  */
 function renderTimestampResult(container, result) {
   container.innerHTML =
-    '<div class="result-item">' +
-      '<span class="result-label">ISO 8601</span>' +
-      '<span class="result-value" id="result-iso">' + result.iso + '</span>' +
-      '<button class="btn-copy" onclick="copyToClipboard(\'' + result.iso + '\')">복사</button>' +
+    '<div class="tool-result-card">' +
+      '<div class="tool-result-card-header">ISO 8601</div>' +
+      '<div class="tool-result-card-body">' +
+        '<span class="tool-result-card-value">' + result.iso + '</span>' +
+        '<button class="tool-copy-btn tool-copy-btn-icon" onclick="copyToClipboard(\'' + result.iso + '\')" title="복사">' +
+          '<i class="fas fa-copy"></i>' +
+        '</button>' +
+      '</div>' +
     '</div>' +
-    '<div class="result-item">' +
-      '<span class="result-label">날짜/시간 (KST)</span>' +
-      '<span class="result-value" id="result-readable">' + result.readable + '</span>' +
-      '<button class="btn-copy" onclick="copyToClipboard(\'' + result.readable.replace(/'/g, "\\'") + '\')">복사</button>' +
+    '<div class="tool-result-card">' +
+      '<div class="tool-result-card-header">날짜/시간 (KST)</div>' +
+      '<div class="tool-result-card-body">' +
+        '<span class="tool-result-card-value">' + result.readable + '</span>' +
+        '<button class="tool-copy-btn tool-copy-btn-icon" onclick="copyToClipboard(\'' + result.readable.replace(/'/g, "\\'") + '\')" title="복사">' +
+          '<i class="fas fa-copy"></i>' +
+        '</button>' +
+      '</div>' +
     '</div>' +
-    '<div class="result-item">' +
-      '<span class="result-label">초 (seconds)</span>' +
-      '<span class="result-value" id="result-sec">' + result.sec + '</span>' +
-      '<button class="btn-copy" onclick="copyToClipboard(\'' + result.sec + '\')">복사</button>' +
+    '<div class="tool-result-card">' +
+      '<div class="tool-result-card-header">초 (seconds)</div>' +
+      '<div class="tool-result-card-body">' +
+        '<span class="tool-result-card-value">' + result.sec + '</span>' +
+        '<button class="tool-copy-btn tool-copy-btn-icon" onclick="copyToClipboard(\'' + result.sec + '\')" title="복사">' +
+          '<i class="fas fa-copy"></i>' +
+        '</button>' +
+      '</div>' +
     '</div>' +
-    '<div class="result-item">' +
-      '<span class="result-label">밀리초 (milliseconds)</span>' +
-      '<span class="result-value" id="result-ms">' + result.ms + '</span>' +
-      '<button class="btn-copy" onclick="copyToClipboard(\'' + result.ms + '\')">복사</button>' +
+    '<div class="tool-result-card">' +
+      '<div class="tool-result-card-header">밀리초 (milliseconds)</div>' +
+      '<div class="tool-result-card-body">' +
+        '<span class="tool-result-card-value">' + result.ms + '</span>' +
+        '<button class="tool-copy-btn tool-copy-btn-icon" onclick="copyToClipboard(\'' + result.ms + '\')" title="복사">' +
+          '<i class="fas fa-copy"></i>' +
+        '</button>' +
+      '</div>' +
     '</div>';
 }
 
@@ -235,15 +251,23 @@ function renderTimestampResult(container, result) {
  */
 function renderDateResult(container, result) {
   container.innerHTML =
-    '<div class="result-item">' +
-      '<span class="result-label">초 (seconds)</span>' +
-      '<span class="result-value" id="result-date-sec">' + result.sec + '</span>' +
-      '<button class="btn-copy" onclick="copyToClipboard(\'' + result.sec + '\')">복사</button>' +
+    '<div class="tool-result-card">' +
+      '<div class="tool-result-card-header">초 (seconds)</div>' +
+      '<div class="tool-result-card-body">' +
+        '<span class="tool-result-card-value">' + result.sec + '</span>' +
+        '<button class="tool-copy-btn tool-copy-btn-icon" onclick="copyToClipboard(\'' + result.sec + '\')" title="복사">' +
+          '<i class="fas fa-copy"></i>' +
+        '</button>' +
+      '</div>' +
     '</div>' +
-    '<div class="result-item">' +
-      '<span class="result-label">밀리초 (milliseconds)</span>' +
-      '<span class="result-value" id="result-date-ms">' + result.ms + '</span>' +
-      '<button class="btn-copy" onclick="copyToClipboard(\'' + result.ms + '\')">복사</button>' +
+    '<div class="tool-result-card">' +
+      '<div class="tool-result-card-header">밀리초 (milliseconds)</div>' +
+      '<div class="tool-result-card-body">' +
+        '<span class="tool-result-card-value">' + result.ms + '</span>' +
+        '<button class="tool-copy-btn tool-copy-btn-icon" onclick="copyToClipboard(\'' + result.ms + '\')" title="복사">' +
+          '<i class="fas fa-copy"></i>' +
+        '</button>' +
+      '</div>' +
     '</div>';
 }
 

@@ -576,6 +576,75 @@ html[data-mode="dark"] {
   margin: 0.75rem 0;
 }
 
+/* --- Result Card (라벨 위, 값+복사 아래 한 줄) --- */
+
+.tool-result-card {
+  background: var(--tool-code-bg);
+  border: 1px solid var(--tool-code-border);
+  border-radius: 8px;
+  padding: 0.65rem 0.85rem;
+  margin-bottom: 0.6rem;
+  transition: border-color 0.2s;
+}
+
+.tool-result-card:hover {
+  border-color: var(--tool-input-focus-border);
+}
+
+.tool-result-card:last-child {
+  margin-bottom: 0;
+}
+
+.tool-result-card-header {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--tool-muted-color);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.3rem;
+}
+
+.tool-result-card-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.tool-result-card-value {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.9rem;
+  color: var(--tool-text-color);
+  word-break: break-all;
+  flex: 1;
+  line-height: 1.4;
+}
+
+/* Icon-only copy button (compact) */
+.tool-copy-btn-icon {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  opacity: 0.5;
+  transition: opacity 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.tool-result-card:hover .tool-copy-btn-icon {
+  opacity: 1;
+}
+
+.tool-copy-btn-icon:hover {
+  opacity: 1;
+  color: var(--tool-link-color);
+  border-color: var(--tool-link-color);
+}
+
 
 /* ==========================================================================
    14. Tools Hub - Card Grid
@@ -653,15 +722,84 @@ html[data-mode="dark"] {
 }
 
 /* ==========================================================================
-   15. Color Preview (Color Converter)
+   15. Color Converter
    ========================================================================== */
 
-.tool-color-preview {
+/* Color picker row: circle picker + HEX input inline */
+.color-picker-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.color-picker-wrapper {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+.color-picker-wrapper input[type="color"] {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: 80px;
-  border-radius: 8px;
+  height: 100%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 50%;
+  background: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.color-picker-wrapper input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.color-picker-wrapper input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+}
+
+.color-picker-wrapper input[type="color"]::-moz-color-swatch {
+  border: none;
+  border-radius: 50%;
+}
+
+.color-picker-ring {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 3px solid var(--tool-panel-border);
+  pointer-events: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.color-picker-wrapper:hover .color-picker-ring {
+  border-color: var(--tool-link-color);
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.12);
+}
+
+/* Large color preview (output panel) */
+.color-preview-large {
+  width: 100%;
+  height: 100px;
+  border-radius: 12px;
   border: 1px solid var(--tool-panel-border);
   margin-bottom: 1rem;
+  background: linear-gradient(135deg, #eee 25%, transparent 25%) -10px 0,
+              linear-gradient(225deg, #eee 25%, transparent 25%) -10px 0,
+              linear-gradient(315deg, #eee 25%, transparent 25%),
+              linear-gradient(45deg, #eee 25%, transparent 25%);
+  background-size: 20px 20px;
+  background-color: #fff;
+  transition: box-shadow 0.3s;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
+}
+
+.tool-color-preview {
+  display: none;
 }
 
 /* ==========================================================================

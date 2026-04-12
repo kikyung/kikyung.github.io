@@ -12,16 +12,16 @@ permalink: /tools/color-converter/
 <div class="tool-panel-input">
   <h3>입력</h3>
 
-  <!-- 컬러피커 -->
+  <!-- 컬러피커 + HEX 인라인 -->
   <div class="tool-input-group">
-    <label class="tool-label" for="color-picker">컬러피커</label>
-    <input type="color" id="color-picker" value="#FF5733" style="width:100%;height:44px;padding:2px;border:1px solid var(--tool-input-border);border-radius:6px;cursor:pointer;background:var(--tool-input-bg);">
-  </div>
-
-  <!-- HEX 입력 -->
-  <div class="tool-input-group">
-    <label class="tool-label" for="color-hex">HEX</label>
-    <input type="text" id="color-hex" class="tool-input tool-text-mono" placeholder="#FF5733">
+    <label class="tool-label">색상 선택</label>
+    <div class="color-picker-row">
+      <div class="color-picker-wrapper">
+        <input type="color" id="color-picker" value="#FF5733">
+        <div class="color-picker-ring" id="color-picker-ring"></div>
+      </div>
+      <input type="text" id="color-hex" class="tool-input tool-text-mono" placeholder="#FF5733" style="flex:1;">
+    </div>
   </div>
 
   <!-- RGB 입력 -->
@@ -62,7 +62,6 @@ permalink: /tools/color-converter/
     </div>
   </div>
 
-  <!-- 오류 메시지 -->
   <span id="color-error" class="tool-error"></span>
 </div>
 
@@ -70,37 +69,39 @@ permalink: /tools/color-converter/
 <div class="tool-panel-output">
   <h3>변환 결과</h3>
 
-  <!-- 색상 미리보기 -->
-  <div id="color-preview" class="tool-color-preview"></div>
+  <!-- 색상 미리보기 (둥근 대형) -->
+  <div id="color-preview" class="color-preview-large"></div>
 
   <!-- HEX 결과 -->
-  <div class="tool-result-section">
-    <div class="tool-result-label">HEX</div>
-    <div class="tool-result-value mono" id="color-hex-result">-</div>
-    <button class="tool-copy-btn" onclick="handleColorCopy('hex')">
-      <i class="fas fa-copy"></i> 복사
-    </button>
+  <div class="tool-result-card">
+    <div class="tool-result-card-header">HEX</div>
+    <div class="tool-result-card-body">
+      <span class="tool-result-card-value" id="color-hex-result">-</span>
+      <button class="tool-copy-btn tool-copy-btn-icon" onclick="handleColorCopy('hex')" title="복사">
+        <i class="fas fa-copy"></i>
+      </button>
+    </div>
   </div>
-
-  <hr class="tool-result-divider">
 
   <!-- RGB 결과 -->
-  <div class="tool-result-section">
-    <div class="tool-result-label">RGB</div>
-    <div class="tool-result-value mono" id="color-rgb-result">-</div>
-    <button class="tool-copy-btn" onclick="handleColorCopy('rgb')">
-      <i class="fas fa-copy"></i> 복사
-    </button>
+  <div class="tool-result-card">
+    <div class="tool-result-card-header">RGB</div>
+    <div class="tool-result-card-body">
+      <span class="tool-result-card-value" id="color-rgb-result">-</span>
+      <button class="tool-copy-btn tool-copy-btn-icon" onclick="handleColorCopy('rgb')" title="복사">
+        <i class="fas fa-copy"></i>
+      </button>
+    </div>
   </div>
 
-  <hr class="tool-result-divider">
-
   <!-- HSL 결과 -->
-  <div class="tool-result-section">
-    <div class="tool-result-label">HSL</div>
-    <div class="tool-result-value mono" id="color-hsl-result">-</div>
-    <button class="tool-copy-btn" onclick="handleColorCopy('hsl')">
-      <i class="fas fa-copy"></i> 복사
-    </button>
+  <div class="tool-result-card">
+    <div class="tool-result-card-header">HSL</div>
+    <div class="tool-result-card-body">
+      <span class="tool-result-card-value" id="color-hsl-result">-</span>
+      <button class="tool-copy-btn tool-copy-btn-icon" onclick="handleColorCopy('hsl')" title="복사">
+        <i class="fas fa-copy"></i>
+      </button>
+    </div>
   </div>
 </div>
