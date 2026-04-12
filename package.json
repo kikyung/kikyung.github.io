@@ -1,0 +1,15 @@
+{
+  "name": "blog-developer-tools",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Test suite for blog developer tools (client-side JS utilities)",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "fast-check": "^4.1.1",
+    "jsdom": "^29.0.2",
+    "vitest": "^3.2.1"
+  }
+}

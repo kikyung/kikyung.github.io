@@ -1,0 +1,95 @@
+---
+layout: tool
+title: "PARA 분류 도우미"
+description: "PARA(Projects, Areas, Resources, Archives) 방법론 기반으로 노트와 정보를 체계적으로 분류하는 온라인 도구."
+tool_icon: "fas fa-sitemap"
+tool_description: "PARA 방법론 기반 노트/정보 분류 도우미"
+tool_usage: "노트 제목과 설명을 입력하고 체크리스트를 선택하면 적합한 PARA 카테고리를 추천합니다."
+permalink: /tools/para-classifier/
+---
+
+<!-- 입력 패널 -->
+<div class="tool-panel-input">
+  <h3>입력</h3>
+
+  <!-- Title -->
+  <div class="tool-input-group">
+    <label class="tool-label" for="para-title">노트 제목</label>
+    <input type="text" id="para-title" class="tool-input" placeholder="노트 제목을 입력하세요">
+  </div>
+
+  <!-- Description -->
+  <div class="tool-input-group">
+    <label class="tool-label" for="para-description">설명</label>
+    <textarea id="para-description" class="tool-textarea" placeholder="노트에 대한 간단한 설명을 입력하세요"></textarea>
+  </div>
+
+  <!-- Checklist -->
+  <div class="tool-input-group">
+    <label class="tool-label">분류 기준 체크리스트</label>
+    <ul class="tool-checklist">
+      <li>
+        <input type="checkbox" id="para-checklist-deadline">
+        <label for="para-checklist-deadline">명확한 마감일이 있다</label>
+      </li>
+      <li>
+        <input type="checkbox" id="para-checklist-deliverable">
+        <label for="para-checklist-deliverable">구체적인 결과물/산출물이 있다</label>
+      </li>
+      <li>
+        <input type="checkbox" id="para-checklist-ongoing">
+        <label for="para-checklist-ongoing">마감일 없이 지속되는 활동이다</label>
+      </li>
+      <li>
+        <input type="checkbox" id="para-checklist-reference">
+        <label for="para-checklist-reference">나중에 참고할 자료이다</label>
+      </li>
+      <li>
+        <input type="checkbox" id="para-checklist-inactive">
+        <label for="para-checklist-inactive">더 이상 활성 상태가 아니다</label>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Error -->
+  <span id="para-error" class="tool-error"></span>
+</div>
+
+<!-- 출력 패널 -->
+<div class="tool-panel-output">
+  <h3>분류 결과</h3>
+
+  <!-- Results -->
+  <div id="para-output"></div>
+
+  <!-- Copy button -->
+  <div class="tool-btn-group">
+    <button type="button" id="btn-copy-para" class="tool-copy-btn">
+      <i class="fas fa-copy"></i> 결과 복사
+    </button>
+  </div>
+
+  <!-- PARA Category Descriptions -->
+  <hr class="tool-result-divider tool-mt-2">
+  <h3>PARA 카테고리 안내</h3>
+
+  <div class="tool-result-section">
+    <div class="tool-result-label"><i class="fas fa-project-diagram"></i> Projects</div>
+    <p class="tool-result-value">마감일과 구체적인 결과물이 있는 단기 프로젝트. 완료 시점이 정해져 있으며, 목표 달성 후 Archives로 이동합니다.</p>
+  </div>
+
+  <div class="tool-result-section">
+    <div class="tool-result-label"><i class="fas fa-layer-group"></i> Areas</div>
+    <p class="tool-result-value">마감일 없이 지속적으로 관리해야 하는 책임 영역. 건강, 재정, 학습 등 일정 수준을 유지해야 하는 활동입니다.</p>
+  </div>
+
+  <div class="tool-result-section">
+    <div class="tool-result-label"><i class="fas fa-book"></i> Resources</div>
+    <p class="tool-result-value">관심 주제에 대한 참고 자료. 나중에 검색하거나 활용할 수 있는 정보, 가이드, 레퍼런스 등을 보관합니다.</p>
+  </div>
+
+  <div class="tool-result-section">
+    <div class="tool-result-label"><i class="fas fa-archive"></i> Archives</div>
+    <p class="tool-result-value">완료되었거나 더 이상 활성 상태가 아닌 항목. 완료된 프로젝트, 비활성화된 영역 등을 보관 목적으로 유지합니다.</p>
+  </div>
+</div>

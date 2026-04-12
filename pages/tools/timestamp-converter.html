@@ -1,0 +1,66 @@
+---
+layout: tool
+title: "타임스탬프 변환기"
+description: "Unix 타임스탬프와 날짜/시간 형식 간 양방향 변환 도구. 초/밀리초 자동 감지, ISO 8601, KST 변환 지원."
+tool_icon: "fas fa-clock"
+tool_description: "Unix 타임스탬프 ↔ 날짜/시간 양방향 변환"
+tool_usage: "타임스탬프 또는 날짜/시간을 입력하면 자동으로 변환됩니다. 초/밀리초 단위를 자동 감지합니다."
+permalink: /tools/timestamp-converter/
+---
+
+<!-- 입력 패널 -->
+<div class="tool-panel-input">
+  <h3>입력</h3>
+
+  <!-- 타임스탬프 → 날짜 변환 -->
+  <div class="tool-input-group">
+    <label class="tool-label" for="timestamp-input">Unix 타임스탬프</label>
+    <input type="text" id="timestamp-input" class="tool-input" placeholder="예: 1700000000 또는 1700000000000" inputmode="numeric">
+    <span id="timestamp-error" class="tool-error"></span>
+  </div>
+
+  <!-- 날짜 → 타임스탬프 변환 -->
+  <div class="tool-input-group">
+    <label class="tool-label" for="date-input">날짜/시간 문자열</label>
+    <input type="text" id="date-input" class="tool-input" placeholder="예: 2024-01-15T09:30:00Z">
+    <span id="date-error" class="tool-error"></span>
+  </div>
+</div>
+
+<!-- 출력 패널 -->
+<div class="tool-panel-output">
+  <h3>변환 결과</h3>
+
+  <!-- 타임스탬프 → 날짜 결과 -->
+  <div id="timestamp-output"></div>
+
+  <!-- 날짜 → 타임스탬프 결과 -->
+  <div id="date-output"></div>
+
+  <!-- 현재 시각 실시간 표시 -->
+  <hr class="tool-result-divider">
+  <div class="tool-result-section">
+    <div class="tool-result-label">현재 시각</div>
+    <div class="tool-result-section">
+      <div class="tool-result-label">초 (seconds)</div>
+      <div class="tool-result-value mono" id="current-timestamp-sec">-</div>
+      <button class="tool-copy-btn" onclick="copyToClipboard(document.getElementById('current-timestamp-sec').textContent)">
+        <i class="fas fa-copy"></i> 복사
+      </button>
+    </div>
+    <div class="tool-result-section">
+      <div class="tool-result-label">밀리초 (milliseconds)</div>
+      <div class="tool-result-value mono" id="current-timestamp-ms">-</div>
+      <button class="tool-copy-btn" onclick="copyToClipboard(document.getElementById('current-timestamp-ms').textContent)">
+        <i class="fas fa-copy"></i> 복사
+      </button>
+    </div>
+    <div class="tool-result-section">
+      <div class="tool-result-label">날짜/시간 (KST)</div>
+      <div class="tool-result-value" id="current-time-readable">-</div>
+      <button class="tool-copy-btn" onclick="copyToClipboard(document.getElementById('current-time-readable').textContent)">
+        <i class="fas fa-copy"></i> 복사
+      </button>
+    </div>
+  </div>
+</div>

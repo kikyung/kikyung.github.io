@@ -1,0 +1,70 @@
+---
+layout: tool
+title: "Markdown 테이블 생성기"
+description: "행/열 수를 지정하고 데이터를 입력하면 Markdown 테이블 코드를 실시간으로 생성하는 온라인 도구. 정렬 옵션 지원."
+tool_icon: "fas fa-table"
+tool_description: "행/열 지정으로 Markdown 테이블 코드 생성"
+tool_usage: "행/열 수를 지정하고 셀에 데이터를 입력하면 실시간으로 Markdown 테이블이 생성됩니다."
+permalink: /tools/markdown-table-generator/
+---
+
+<!-- 입력 패널 -->
+<div class="tool-panel-input">
+  <h3>입력</h3>
+
+  <!-- 행/열 수 입력 -->
+  <div class="tool-input-row">
+    <div class="tool-input-group">
+      <label class="tool-label" for="table-rows">데이터 행 수</label>
+      <input type="number" id="table-rows" class="tool-input" value="2" min="1" inputmode="numeric">
+    </div>
+    <div class="tool-input-group">
+      <label class="tool-label" for="table-cols">열 수</label>
+      <input type="number" id="table-cols" class="tool-input" value="3" min="1" inputmode="numeric">
+    </div>
+  </div>
+  <span id="table-error" class="tool-error"></span>
+
+  <!-- 정렬 옵션 드롭다운 -->
+  <div class="tool-input-group">
+    <label class="tool-label">열 정렬</label>
+    <div id="table-alignment-row" class="tool-input-row"></div>
+  </div>
+
+  <!-- 편집 가능한 테이블 그리드 -->
+  <div class="tool-input-group">
+    <label class="tool-label">테이블 데이터</label>
+    <div id="table-grid" class="tool-table-grid"></div>
+  </div>
+
+  <!-- 행/열 추가/삭제 버튼 -->
+  <div class="tool-btn-group">
+    <button id="btn-add-row" class="tool-btn tool-btn-sm">
+      <i class="fas fa-plus"></i> 행 추가
+    </button>
+    <button id="btn-remove-row" class="tool-btn tool-btn-sm tool-btn-secondary">
+      <i class="fas fa-minus"></i> 행 삭제
+    </button>
+    <button id="btn-add-col" class="tool-btn tool-btn-sm">
+      <i class="fas fa-plus"></i> 열 추가
+    </button>
+    <button id="btn-remove-col" class="tool-btn tool-btn-sm tool-btn-secondary">
+      <i class="fas fa-minus"></i> 열 삭제
+    </button>
+  </div>
+</div>
+
+<!-- 출력 패널 -->
+<div class="tool-panel-output">
+  <h3>Markdown 코드</h3>
+
+  <!-- 복사 버튼 -->
+  <div class="tool-btn-group tool-mb-2">
+    <button id="btn-copy-table" class="tool-copy-btn">
+      <i class="fas fa-copy"></i> Markdown 복사
+    </button>
+  </div>
+
+  <!-- Markdown 코드 미리보기 -->
+  <div id="table-output" class="tool-code-preview"></div>
+</div>
