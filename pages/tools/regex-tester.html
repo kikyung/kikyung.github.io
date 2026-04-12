@@ -1,0 +1,92 @@
+---
+layout: tool
+title: "정규표현식 테스터"
+description: "정규표현식 패턴을 실시간으로 테스트하고 매칭 결과를 하이라이트로 확인하는 온라인 도구. 캡처 그룹, 플래그 옵션 지원."
+tool_icon: "fas fa-search"
+tool_description: "정규표현식 패턴 테스트 및 매칭 결과 실시간 확인"
+tool_usage: "정규표현식 패턴과 테스트 문자열을 입력하면 실시간으로 매칭 결과가 표시됩니다."
+permalink: /tools/regex-tester/
+---
+
+<!-- 입력 패널 -->
+<div class="tool-panel-input">
+  <h3>입력</h3>
+
+  <!-- 정규표현식 패턴 입력 -->
+  <div class="tool-input-group">
+    <label class="tool-label" for="regex-pattern">정규표현식 패턴</label>
+    <input type="text" id="regex-pattern" class="tool-input tool-text-mono" placeholder="예: [a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}">
+    <span id="regex-error" class="tool-error"></span>
+  </div>
+
+  <!-- 플래그 체크박스 -->
+  <div class="tool-input-group">
+    <label class="tool-label">플래그</label>
+    <div class="tool-checkbox-group">
+      <label class="tool-checkbox-label">
+        <input type="checkbox" id="regex-flags-g" checked> g <span class="tool-muted-text">(global)</span>
+      </label>
+      <label class="tool-checkbox-label">
+        <input type="checkbox" id="regex-flags-i"> i <span class="tool-muted-text">(ignoreCase)</span>
+      </label>
+      <label class="tool-checkbox-label">
+        <input type="checkbox" id="regex-flags-m"> m <span class="tool-muted-text">(multiline)</span>
+      </label>
+      <label class="tool-checkbox-label">
+        <input type="checkbox" id="regex-flags-s"> s <span class="tool-muted-text">(dotAll)</span>
+      </label>
+      <label class="tool-checkbox-label">
+        <input type="checkbox" id="regex-flags-u"> u <span class="tool-muted-text">(unicode)</span>
+      </label>
+    </div>
+  </div>
+
+  <!-- 테스트 문자열 입력 -->
+  <div class="tool-input-group">
+    <label class="tool-label" for="regex-test-string">테스트 문자열</label>
+    <textarea id="regex-test-string" class="tool-textarea" rows="6" placeholder="매칭할 텍스트를 입력하세요"></textarea>
+  </div>
+
+  <!-- 예시 패턴 -->
+  <div class="tool-input-group">
+    <label class="tool-label">자주 사용하는 예시</label>
+    <div class="tool-examples">
+      <button class="tool-example-btn" onclick="setRegexExample(0)">이메일</button>
+      <button class="tool-example-btn" onclick="setRegexExample(1)">URL</button>
+      <button class="tool-example-btn" onclick="setRegexExample(2)">전화번호</button>
+      <button class="tool-example-btn" onclick="setRegexExample(3)">IP 주소</button>
+    </div>
+  </div>
+</div>
+
+<!-- 출력 패널 -->
+<div class="tool-panel-output">
+  <h3>매칭 결과</h3>
+
+  <!-- 요약 정보 -->
+  <div class="tool-result-section">
+    <div class="tool-result-label">요약</div>
+    <div id="regex-output-summary" class="tool-result-value"></div>
+  </div>
+
+  <!-- 패턴 복사 버튼 -->
+  <div class="tool-btn-group tool-mb-2">
+    <button class="tool-copy-btn" onclick="copyToClipboard(document.getElementById('regex-pattern').value, '패턴이 복사되었습니다')">
+      <i class="fas fa-copy"></i> 패턴 복사
+    </button>
+  </div>
+
+  <!-- 하이라이트된 매칭 결과 -->
+  <div class="tool-result-section">
+    <div class="tool-result-label">하이라이트</div>
+    <div id="regex-output-highlight" class="tool-code-preview"></div>
+  </div>
+
+  <hr class="tool-result-divider">
+
+  <!-- 매칭 상세 목록 -->
+  <div class="tool-result-section">
+    <div class="tool-result-label">매칭 상세</div>
+    <div id="regex-output-matches"></div>
+  </div>
+</div>

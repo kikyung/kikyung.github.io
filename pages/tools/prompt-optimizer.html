@@ -1,0 +1,82 @@
+---
+layout: tool
+title: "AI 프롬프트 최적화"
+description: "AI 프롬프트를 Role, Context, Instruction, Format, Constraints로 구조화하고 Chain of Thought, Few-shot 기법을 적용하는 온라인 도구."
+tool_icon: "fas fa-magic"
+tool_description: "AI 프롬프트 구조화 및 기법 적용"
+tool_usage: "각 섹션에 내용을 입력하면 구조화된 프롬프트가 자동 생성됩니다. 프롬프트 기법을 선택하여 적용할 수 있습니다."
+permalink: /tools/prompt-optimizer/
+---
+
+<!-- 입력 패널 -->
+<div class="tool-panel-input">
+  <h3>입력</h3>
+
+  <!-- Role -->
+  <div class="tool-input-group">
+    <label class="tool-label" for="prompt-role">역할 (Role)</label>
+    <span class="tool-guide-text" style="display:block;font-size:0.8rem;color:var(--tool-muted-color);margin-bottom:0.3rem;">AI에게 부여할 역할이나 전문성을 정의합니다.</span>
+    <textarea id="prompt-role" class="tool-textarea" placeholder="예: 당신은 10년 경력의 시니어 백엔드 개발자입니다."></textarea>
+  </div>
+
+  <!-- Context -->
+  <div class="tool-input-group">
+    <label class="tool-label" for="prompt-context">맥락 (Context)</label>
+    <span class="tool-guide-text" style="display:block;font-size:0.8rem;color:var(--tool-muted-color);margin-bottom:0.3rem;">현재 상황이나 배경 정보를 제공합니다.</span>
+    <textarea id="prompt-context" class="tool-textarea" placeholder="예: Spring Boot 기반 REST API를 개발하고 있습니다."></textarea>
+  </div>
+
+  <!-- Instruction -->
+  <div class="tool-input-group">
+    <label class="tool-label" for="prompt-instruction">지시 (Instruction)</label>
+    <span class="tool-guide-text" style="display:block;font-size:0.8rem;color:var(--tool-muted-color);margin-bottom:0.3rem;">AI에게 수행할 구체적인 작업을 지시합니다.</span>
+    <textarea id="prompt-instruction" class="tool-textarea" placeholder="예: 사용자 인증 API의 설계를 검토해주세요."></textarea>
+  </div>
+
+  <!-- Format -->
+  <div class="tool-input-group">
+    <label class="tool-label" for="prompt-format">형식 (Format)</label>
+    <span class="tool-guide-text" style="display:block;font-size:0.8rem;color:var(--tool-muted-color);margin-bottom:0.3rem;">원하는 출력 형식이나 구조를 지정합니다.</span>
+    <textarea id="prompt-format" class="tool-textarea" placeholder="예: Markdown 형식으로, 코드 블록을 포함하여 작성해주세요."></textarea>
+  </div>
+
+  <!-- Constraints -->
+  <div class="tool-input-group">
+    <label class="tool-label" for="prompt-constraints">제약 (Constraints)</label>
+    <span class="tool-guide-text" style="display:block;font-size:0.8rem;color:var(--tool-muted-color);margin-bottom:0.3rem;">답변의 제약 조건이나 제한 사항을 명시합니다.</span>
+    <textarea id="prompt-constraints" class="tool-textarea" placeholder="예: 한국어로 답변하고, 500자 이내로 작성해주세요."></textarea>
+  </div>
+
+  <!-- Technique Select + Apply Button -->
+  <div class="tool-input-group">
+    <label class="tool-label" for="prompt-technique">프롬프트 기법</label>
+    <div class="tool-input-row">
+      <div class="tool-input-group">
+        <select id="prompt-technique" class="tool-select">
+          <option value="">기법 선택...</option>
+          <option value="chain-of-thought">Chain of Thought (단계별 추론)</option>
+          <option value="few-shot">Few-shot (예시 기반)</option>
+          <option value="zero-shot">Zero-shot (직접 지시)</option>
+        </select>
+      </div>
+      <button type="button" id="btn-apply-technique" class="tool-btn">
+        <i class="fas fa-bolt"></i> 기법 적용
+      </button>
+    </div>
+  </div>
+
+  <!-- Error -->
+  <span id="prompt-error" class="tool-error"></span>
+</div>
+
+<!-- 출력 패널 -->
+<div class="tool-panel-output">
+  <h3>프롬프트 미리보기</h3>
+
+  <div class="tool-code-preview">
+    <pre id="prompt-output">섹션을 입력하면 여기에 조합된 프롬프트가 표시됩니다.</pre>
+    <button type="button" id="btn-copy-prompt" class="tool-copy-btn">
+      <i class="fas fa-copy"></i> 복사
+    </button>
+  </div>
+</div>

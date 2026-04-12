@@ -1,0 +1,106 @@
+---
+layout: tool
+title: "색상 변환기"
+description: "HEX, RGB, HSL 색상 형식 간 양방향 변환 온라인 도구. 컬러피커, 색상 미리보기, 클립보드 복사 지원."
+tool_icon: "fas fa-palette"
+tool_description: "HEX/RGB/HSL 색상 형식 간 양방향 변환"
+tool_usage: "HEX, RGB, HSL 중 하나의 형식으로 색상을 입력하면 나머지 형식으로 자동 변환됩니다."
+permalink: /tools/color-converter/
+---
+
+<!-- 입력 패널 -->
+<div class="tool-panel-input">
+  <h3>입력</h3>
+
+  <!-- 컬러피커 -->
+  <div class="tool-input-group">
+    <label class="tool-label" for="color-picker">컬러피커</label>
+    <input type="color" id="color-picker" value="#FF5733" style="width:100%;height:44px;padding:2px;border:1px solid var(--tool-input-border);border-radius:6px;cursor:pointer;background:var(--tool-input-bg);">
+  </div>
+
+  <!-- HEX 입력 -->
+  <div class="tool-input-group">
+    <label class="tool-label" for="color-hex">HEX</label>
+    <input type="text" id="color-hex" class="tool-input tool-text-mono" placeholder="#FF5733">
+  </div>
+
+  <!-- RGB 입력 -->
+  <div class="tool-input-group">
+    <label class="tool-label">RGB</label>
+    <div class="tool-input-row">
+      <div class="tool-input-group">
+        <label class="tool-label" for="color-r">R</label>
+        <input type="number" id="color-r" class="tool-input" min="0" max="255" placeholder="0-255">
+      </div>
+      <div class="tool-input-group">
+        <label class="tool-label" for="color-g">G</label>
+        <input type="number" id="color-g" class="tool-input" min="0" max="255" placeholder="0-255">
+      </div>
+      <div class="tool-input-group">
+        <label class="tool-label" for="color-b">B</label>
+        <input type="number" id="color-b" class="tool-input" min="0" max="255" placeholder="0-255">
+      </div>
+    </div>
+  </div>
+
+  <!-- HSL 입력 -->
+  <div class="tool-input-group">
+    <label class="tool-label">HSL</label>
+    <div class="tool-input-row">
+      <div class="tool-input-group">
+        <label class="tool-label" for="color-h">H</label>
+        <input type="number" id="color-h" class="tool-input" min="0" max="360" placeholder="0-360">
+      </div>
+      <div class="tool-input-group">
+        <label class="tool-label" for="color-s">S</label>
+        <input type="number" id="color-s" class="tool-input" min="0" max="100" placeholder="0-100">
+      </div>
+      <div class="tool-input-group">
+        <label class="tool-label" for="color-l">L</label>
+        <input type="number" id="color-l" class="tool-input" min="0" max="100" placeholder="0-100">
+      </div>
+    </div>
+  </div>
+
+  <!-- 오류 메시지 -->
+  <span id="color-error" class="tool-error"></span>
+</div>
+
+<!-- 출력 패널 -->
+<div class="tool-panel-output">
+  <h3>변환 결과</h3>
+
+  <!-- 색상 미리보기 -->
+  <div id="color-preview" class="tool-color-preview"></div>
+
+  <!-- HEX 결과 -->
+  <div class="tool-result-section">
+    <div class="tool-result-label">HEX</div>
+    <div class="tool-result-value mono" id="color-hex-result">-</div>
+    <button class="tool-copy-btn" onclick="handleColorCopy('hex')">
+      <i class="fas fa-copy"></i> 복사
+    </button>
+  </div>
+
+  <hr class="tool-result-divider">
+
+  <!-- RGB 결과 -->
+  <div class="tool-result-section">
+    <div class="tool-result-label">RGB</div>
+    <div class="tool-result-value mono" id="color-rgb-result">-</div>
+    <button class="tool-copy-btn" onclick="handleColorCopy('rgb')">
+      <i class="fas fa-copy"></i> 복사
+    </button>
+  </div>
+
+  <hr class="tool-result-divider">
+
+  <!-- HSL 결과 -->
+  <div class="tool-result-section">
+    <div class="tool-result-label">HSL</div>
+    <div class="tool-result-value mono" id="color-hsl-result">-</div>
+    <button class="tool-copy-btn" onclick="handleColorCopy('hsl')">
+      <i class="fas fa-copy"></i> 복사
+    </button>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+---
+layout: default
+---
+
+{%- comment -%}
+  도구 페이지 공통 레이아웃
+  - default 레이아웃 상속 (Chirpy 테마)
+  - 2패널 레이아웃: 데스크톱 좌우, 모바일 상하
+  - Front Matter: title, description, tool_icon, tool_description, tool_usage, permalink, tool_js
+  - Requirements: 11.3, 11.4, 11.6
+{%- endcomment -%}
+
+{% comment %} JSON-LD 구조화된 데이터 (WebApplication) - Google 검색 최적화 {% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "{{ page.title | escape }}",
+  "description": "{{ page.description | escape }}",
+  "url": "{{ page.url | absolute_url }}",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "All",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.social.name | escape }}",
+    "url": "{{ site.url }}"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "{{ site.title | escape }}",
+    "url": "{{ site.url }}"
+  }
+}
+</script>
+
+{% comment %} 공통 도구 CSS {% endcomment %}
+<link rel="stylesheet" href="{{ '/assets/css/tools/tools.css' | relative_url }}">
+
+<div class="tool-page">
+  {% comment %} 도구 헤더: 아이콘, 이름, 설명, 사용법 {% endcomment %}
+  <div class="tool-header">
+    <h1 class="tool-title">
+      {% if page.tool_icon %}
+        <i class="{{ page.tool_icon }}"></i>
+      {% endif %}
+      {{ page.title }}
+    </h1>
+    {% if page.tool_description %}
+      <p class="tool-description">{{ page.tool_description }}</p>
+    {% endif %}
+    {% if page.tool_usage %}
+      <div class="tool-usage">
+        <i class="fas fa-info-circle"></i>
+        <span>{{ page.tool_usage }}</span>
+      </div>
+    {% endif %}
+  </div>
+
+  {% comment %} 2패널 레이아웃 (입력/출력) {% endcomment %}
+  <div class="tool-panels">
+    {{ content }}
+  </div>
+</div>
+
+{% comment %} 공통 JS 먼저 로드, 이후 도구별 JS {% endcomment %}
+<script src="{{ '/assets/js/tools/common.js' | relative_url }}"></script>
+
+{% comment %} 도구별 JS: tool_js front matter 또는 permalink에서 슬러그 추출 {% endcomment %}
+{% if page.tool_js %}
+  <script src="{{ '/assets/js/tools/' | append: page.tool_js | relative_url }}"></script>
+{% else %}
+  {% assign tool_slug = page.permalink | replace: '/tools/', '' | replace: '/', '' %}
+  {% if tool_slug != '' %}
+    <script src="{{ '/assets/js/tools/' | append: tool_slug | append: '.js' | relative_url }}"></script>
+  {% endif %}
+{% endif %}

@@ -1,0 +1,895 @@
+/* ==========================================================================
+   Developer Tools - Common Styles
+   Chirpy 테마 통합, 다크/라이트 모드 대응
+   Requirements: 11.1, 11.2, 11.3
+   ========================================================================== */
+
+/* ==========================================================================
+   1. CSS Custom Properties (Light Mode - Default)
+   Chirpy 테마: html:not([data-mode]) 또는 html[data-mode="light"]
+   ========================================================================== */
+
+:root {
+  /* Tool page colors - Light */
+  --tool-bg: #ffffff;
+  --tool-panel-bg: #f8f9fa;
+  --tool-panel-border: #e9ecef;
+  --tool-input-bg: #ffffff;
+  --tool-input-border: #ced4da;
+  --tool-input-focus-border: #86b7fe;
+  --tool-input-text: #212529;
+  --tool-input-placeholder: #6c757d;
+  --tool-label-color: #495057;
+  --tool-heading-color: var(--heading-color, #2a2a2a);
+  --tool-text-color: var(--text-color, #34343c);
+  --tool-muted-color: var(--text-muted-color, #757575);
+  --tool-link-color: var(--link-color, #0056b2);
+  --tool-btn-bg: #0d6efd;
+  --tool-btn-hover-bg: #0b5ed7;
+  --tool-btn-text: #ffffff;
+  --tool-btn-secondary-bg: #6c757d;
+  --tool-btn-secondary-hover-bg: #5c636a;
+  --tool-card-bg: var(--card-bg, #ffffff);
+  --tool-card-border: #e9ecef;
+  --tool-card-shadow: var(--card-shadow, rgba(104, 104, 104, 0.05) 0 2px 6px 0);
+  --tool-card-hover-bg: #f0f4f8;
+  --tool-code-bg: #f6f8fa;
+  --tool-code-border: #e1e4e8;
+  --tool-code-text: #24292f;
+  --tool-toast-bg: #333333;
+  --tool-toast-text: #ffffff;
+  --tool-error-color: #dc3545;
+  --tool-error-bg: #fff5f5;
+  --tool-success-color: #198754;
+  --tool-highlight-bg: rgba(255, 235, 59, 0.3);
+  --tool-divider-color: #dee2e6;
+  --tool-icon-color: #6c757d;
+  --tool-category-bg: #f0f4f8;
+}
+
+/* ==========================================================================
+   2. Dark Mode CSS Variables
+   Chirpy 테마: html[data-mode="dark"]
+   ========================================================================== */
+
+html[data-mode="dark"] {
+  --tool-bg: rgb(27, 27, 30);
+  --tool-panel-bg: #1e1e1e;
+  --tool-panel-border: rgb(44, 45, 45);
+  --tool-input-bg: #2a2a2e;
+  --tool-input-border: #3e3e42;
+  --tool-input-focus-border: rgb(138, 180, 248);
+  --tool-input-text: rgb(175, 176, 177);
+  --tool-input-placeholder: #868686;
+  --tool-label-color: #a7a7a7;
+  --tool-heading-color: #cccccc;
+  --tool-text-color: rgb(175, 176, 177);
+  --tool-muted-color: #868686;
+  --tool-link-color: rgb(138, 180, 248);
+  --tool-btn-bg: #4a8fe7;
+  --tool-btn-hover-bg: #3a7fd7;
+  --tool-btn-text: #ffffff;
+  --tool-btn-secondary-bg: #52565a;
+  --tool-btn-secondary-hover-bg: #6c757d;
+  --tool-card-bg: #1e1e1e;
+  --tool-card-border: rgb(44, 45, 45);
+  --tool-card-shadow: rgba(21, 21, 21, 0.72) 0 6px 18px 0;
+  --tool-card-hover-bg: #2a2d30;
+  --tool-code-bg: #151515;
+  --tool-code-border: #2d2d2d;
+  --tool-code-text: #d0d0d0;
+  --tool-toast-bg: #4a4a4a;
+  --tool-toast-text: #f0f0f0;
+  --tool-error-color: #f08a8b;
+  --tool-error-bg: rgba(220, 53, 69, 0.1);
+  --tool-success-color: #4caf50;
+  --tool-highlight-bg: rgba(255, 235, 59, 0.15);
+  --tool-divider-color: rgb(44, 45, 45);
+  --tool-icon-color: #868686;
+  --tool-category-bg: #252526;
+}
+
+/* prefers-color-scheme dark fallback (Chirpy uses this when no data-mode set) */
+@media (prefers-color-scheme: dark) {
+  html:not([data-mode]) {
+    --tool-bg: rgb(27, 27, 30);
+    --tool-panel-bg: #1e1e1e;
+    --tool-panel-border: rgb(44, 45, 45);
+    --tool-input-bg: #2a2a2e;
+    --tool-input-border: #3e3e42;
+    --tool-input-focus-border: rgb(138, 180, 248);
+    --tool-input-text: rgb(175, 176, 177);
+    --tool-input-placeholder: #868686;
+    --tool-label-color: #a7a7a7;
+    --tool-heading-color: #cccccc;
+    --tool-text-color: rgb(175, 176, 177);
+    --tool-muted-color: #868686;
+    --tool-link-color: rgb(138, 180, 248);
+    --tool-btn-bg: #4a8fe7;
+    --tool-btn-hover-bg: #3a7fd7;
+    --tool-btn-text: #ffffff;
+    --tool-btn-secondary-bg: #52565a;
+    --tool-btn-secondary-hover-bg: #6c757d;
+    --tool-card-bg: #1e1e1e;
+    --tool-card-border: rgb(44, 45, 45);
+    --tool-card-shadow: rgba(21, 21, 21, 0.72) 0 6px 18px 0;
+    --tool-card-hover-bg: #2a2d30;
+    --tool-code-bg: #151515;
+    --tool-code-border: #2d2d2d;
+    --tool-code-text: #d0d0d0;
+    --tool-toast-bg: #4a4a4a;
+    --tool-toast-text: #f0f0f0;
+    --tool-error-color: #f08a8b;
+    --tool-error-bg: rgba(220, 53, 69, 0.1);
+    --tool-success-color: #4caf50;
+    --tool-highlight-bg: rgba(255, 235, 59, 0.15);
+    --tool-divider-color: rgb(44, 45, 45);
+    --tool-icon-color: #868686;
+    --tool-category-bg: #252526;
+  }
+}
+
+
+/* ==========================================================================
+   3. Tool Page Layout
+   ========================================================================== */
+
+.tool-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem 2rem;
+  color: var(--tool-text-color);
+}
+
+/* --- Tool Header --- */
+
+.tool-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--tool-divider-color);
+}
+
+.tool-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--tool-heading-color);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tool-title i {
+  font-size: 1.5rem;
+  color: var(--tool-link-color);
+}
+
+.tool-description {
+  font-size: 1rem;
+  color: var(--tool-muted-color);
+  margin-bottom: 0.5rem;
+}
+
+.tool-usage {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.6rem 0.8rem;
+  background: var(--tool-category-bg);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: var(--tool-muted-color);
+  line-height: 1.5;
+}
+
+.tool-usage i {
+  color: var(--tool-link-color);
+  margin-top: 0.15rem;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   4. Two-Panel Layout (Desktop: side-by-side, Mobile: stacked)
+   Requirements: 11.2, 11.3
+   ========================================================================== */
+
+.tool-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.tool-panel-input,
+.tool-panel-output {
+  background: var(--tool-panel-bg);
+  border: 1px solid var(--tool-panel-border);
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+
+.tool-panel-input h3,
+.tool-panel-output h3,
+.panel-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--tool-heading-color);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--tool-divider-color);
+}
+
+/* ==========================================================================
+   5. Form Elements (Input, Textarea, Select, Button)
+   ========================================================================== */
+
+.tool-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--tool-label-color);
+  margin-bottom: 0.35rem;
+}
+
+.tool-input,
+.tool-textarea,
+.tool-select {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  color: var(--tool-input-text);
+  background-color: var(--tool-input-bg);
+  border: 1px solid var(--tool-input-border);
+  border-radius: 6px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.tool-input:focus,
+.tool-textarea:focus,
+.tool-select:focus {
+  border-color: var(--tool-input-focus-border);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
+}
+
+.tool-input::placeholder,
+.tool-textarea::placeholder {
+  color: var(--tool-input-placeholder);
+}
+
+.tool-textarea {
+  min-height: 120px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.tool-select {
+  cursor: pointer;
+  appearance: auto;
+}
+
+/* Input group (label + input + error in one block) */
+.tool-input-group {
+  margin-bottom: 1rem;
+}
+
+/* Inline input row */
+.tool-input-row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.tool-input-row .tool-input-group {
+  flex: 1;
+  min-width: 80px;
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   6. Buttons
+   ========================================================================== */
+
+.tool-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--tool-btn-text);
+  background-color: var(--tool-btn-bg);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.tool-btn:hover {
+  background-color: var(--tool-btn-hover-bg);
+}
+
+.tool-btn:active {
+  transform: scale(0.97);
+}
+
+.tool-btn-secondary {
+  background-color: var(--tool-btn-secondary-bg);
+}
+
+.tool-btn-secondary:hover {
+  background-color: var(--tool-btn-secondary-hover-bg);
+}
+
+.tool-btn-sm {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.78rem;
+}
+
+.tool-btn-outline {
+  background: transparent;
+  color: var(--tool-btn-bg);
+  border: 1px solid var(--tool-btn-bg);
+}
+
+.tool-btn-outline:hover {
+  background-color: var(--tool-btn-bg);
+  color: var(--tool-btn-text);
+}
+
+/* Copy button */
+.tool-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.78rem;
+  color: var(--tool-muted-color);
+  background: transparent;
+  border: 1px solid var(--tool-panel-border);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.tool-copy-btn:hover {
+  color: var(--tool-link-color);
+  border-color: var(--tool-link-color);
+}
+
+.tool-copy-btn.copied {
+  color: var(--tool-success-color);
+  border-color: var(--tool-success-color);
+}
+
+/* Button group */
+.tool-btn-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
+
+
+/* ==========================================================================
+   7. Code Preview Area
+   ========================================================================== */
+
+.tool-code-preview {
+  position: relative;
+  background: var(--tool-code-bg);
+  border: 1px solid var(--tool-code-border);
+  border-radius: 8px;
+  padding: 1rem;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--tool-code-text);
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.tool-code-preview .tool-copy-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+/* ==========================================================================
+   8. Toast Notification
+   Requirements: 11.5
+   ========================================================================== */
+
+.tool-toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--tool-toast-bg);
+  color: var(--tool-toast-text);
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+  z-index: 9999;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.tool-toast.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ==========================================================================
+   9. Error Message
+   ========================================================================== */
+
+.tool-error {
+  font-size: 0.8rem;
+  color: var(--tool-error-color);
+  margin-top: 0.25rem;
+  min-height: 0;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: opacity 0.2s, max-height 0.2s;
+}
+
+.tool-error.visible {
+  opacity: 1;
+  max-height: 3rem;
+  margin-top: 0.35rem;
+}
+
+/* Inline error banner (for panel-level errors) */
+.tool-error-banner {
+  padding: 0.5rem 0.75rem;
+  background: var(--tool-error-bg);
+  border: 1px solid var(--tool-error-color);
+  border-radius: 6px;
+  color: var(--tool-error-color);
+  font-size: 0.83rem;
+  margin-bottom: 0.75rem;
+  display: none;
+}
+
+.tool-error-banner.visible {
+  display: block;
+}
+
+/* ==========================================================================
+   10. Match Highlight
+   ========================================================================== */
+
+.tool-highlight {
+  background: var(--tool-highlight-bg);
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+/* ==========================================================================
+   11. Checkbox / Radio Styles
+   ========================================================================== */
+
+.tool-checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.tool-checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--tool-text-color);
+  cursor: pointer;
+}
+
+.tool-checkbox-label input[type="checkbox"],
+.tool-checkbox-label input[type="radio"] {
+  accent-color: var(--tool-btn-bg);
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   12. Example / Preset List
+   ========================================================================== */
+
+.tool-examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.tool-example-btn {
+  padding: 0.25rem 0.6rem;
+  font-size: 0.78rem;
+  color: var(--tool-link-color);
+  background: transparent;
+  border: 1px solid var(--tool-panel-border);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.tool-example-btn:hover {
+  background: var(--tool-link-color);
+  color: var(--tool-btn-text);
+  border-color: var(--tool-link-color);
+}
+
+/* ==========================================================================
+   13. Result / Output Sections
+   ========================================================================== */
+
+.tool-result-section {
+  margin-bottom: 1rem;
+}
+
+.tool-result-section:last-child {
+  margin-bottom: 0;
+}
+
+.tool-result-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--tool-muted-color);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.3rem;
+}
+
+.tool-result-value {
+  font-size: 0.95rem;
+  color: var(--tool-text-color);
+  padding: 0.4rem 0;
+  word-break: break-all;
+}
+
+.tool-result-value.mono {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.88rem;
+}
+
+/* Divider between result sections */
+.tool-result-divider {
+  border: none;
+  border-top: 1px solid var(--tool-divider-color);
+  margin: 0.75rem 0;
+}
+
+
+/* ==========================================================================
+   14. Tools Hub - Card Grid
+   Requirements: 1.4, 1.5
+   ========================================================================== */
+
+/* Category section */
+.tool-category {
+  margin-bottom: 2rem;
+}
+
+.tool-category-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--tool-heading-color);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--tool-divider-color);
+}
+
+.tool-category-header i {
+  color: var(--tool-link-color);
+}
+
+/* Card grid */
+.tool-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+/* Individual card */
+.tool-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.2rem;
+  background: var(--tool-card-bg);
+  border: 1px solid var(--tool-card-border);
+  border-radius: 10px;
+  box-shadow: var(--tool-card-shadow);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.tool-card:hover {
+  transform: translateY(-3px);
+  background-color: var(--tool-card-hover-bg);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: inherit;
+}
+
+.tool-card-icon {
+  font-size: 1.6rem;
+  color: var(--tool-link-color);
+  margin-bottom: 0.6rem;
+}
+
+.tool-card-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--tool-heading-color);
+  margin-bottom: 0.35rem;
+}
+
+.tool-card-desc {
+  font-size: 0.83rem;
+  color: var(--tool-muted-color);
+  line-height: 1.5;
+  flex: 1;
+}
+
+/* ==========================================================================
+   15. Color Preview (Color Converter)
+   ========================================================================== */
+
+.tool-color-preview {
+  width: 100%;
+  height: 80px;
+  border-radius: 8px;
+  border: 1px solid var(--tool-panel-border);
+  margin-bottom: 1rem;
+}
+
+/* ==========================================================================
+   16. Table Grid (Markdown Table Generator)
+   ========================================================================== */
+
+.tool-table-grid {
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+.tool-table-grid table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tool-table-grid th,
+.tool-table-grid td {
+  border: 1px solid var(--tool-panel-border);
+  padding: 0;
+}
+
+.tool-table-grid input {
+  width: 100%;
+  min-width: 80px;
+  padding: 0.4rem 0.5rem;
+  border: none;
+  background: var(--tool-input-bg);
+  color: var(--tool-input-text);
+  font-size: 0.85rem;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.tool-table-grid input:focus {
+  outline: 2px solid var(--tool-input-focus-border);
+  outline-offset: -2px;
+}
+
+.tool-table-grid th input {
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   17. Checklist (PARA Classifier)
+   ========================================================================== */
+
+.tool-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+.tool-checklist li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--tool-divider-color);
+  font-size: 0.9rem;
+  color: var(--tool-text-color);
+}
+
+.tool-checklist li:last-child {
+  border-bottom: none;
+}
+
+/* ==========================================================================
+   18. Confidence Badge (PARA Classifier)
+   ========================================================================== */
+
+.tool-badge {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.tool-badge-high {
+  background: rgba(25, 135, 84, 0.15);
+  color: var(--tool-success-color);
+}
+
+.tool-badge-medium {
+  background: rgba(255, 193, 7, 0.15);
+  color: #cc9a06;
+}
+
+.tool-badge-low {
+  background: rgba(220, 53, 69, 0.1);
+  color: var(--tool-error-color);
+}
+
+/* ==========================================================================
+   19. Responsive Layout
+   Requirements: 11.2
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  /* Stack panels vertically on mobile */
+  .tool-panels {
+    grid-template-columns: 1fr;
+  }
+
+  .tool-title {
+    font-size: 1.4rem;
+  }
+
+  .tool-title i {
+    font-size: 1.2rem;
+  }
+
+  .tool-panel-input,
+  .tool-panel-output {
+    padding: 1rem;
+  }
+
+  /* Card grid: single column on small screens */
+  .tool-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tool-input-row {
+    flex-direction: column;
+  }
+
+  .tool-input-row .tool-input-group {
+    min-width: 100%;
+  }
+
+  .tool-btn-group {
+    flex-direction: column;
+  }
+
+  .tool-btn-group .tool-btn {
+    width: 100%;
+  }
+}
+
+/* Medium screens: 2-column card grid */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .tool-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==========================================================================
+   19.5. Custom Field Rows (Metadata Generator)
+   ========================================================================== */
+
+.custom-field-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.custom-field-row .custom-field-key,
+.custom-field-row .custom-field-value {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  color: var(--tool-input-text);
+  background-color: var(--tool-input-bg);
+  border: 1px solid var(--tool-input-border);
+  border-radius: 6px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.custom-field-row .custom-field-key:focus,
+.custom-field-row .custom-field-value:focus {
+  border-color: var(--tool-input-focus-border);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
+}
+
+.custom-field-row .custom-field-key::placeholder,
+.custom-field-row .custom-field-value::placeholder {
+  color: var(--tool-input-placeholder);
+}
+
+.btn-remove-custom-field {
+  padding: 0.35rem 0.6rem;
+  font-size: 0.78rem;
+  color: var(--tool-error-color);
+  background: transparent;
+  border: 1px solid var(--tool-error-color);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.btn-remove-custom-field:hover {
+  background: var(--tool-error-color);
+  color: var(--tool-btn-text);
+}
+
+@media (max-width: 768px) {
+  .custom-field-row {
+    flex-wrap: wrap;
+  }
+
+  .custom-field-row .custom-field-key,
+  .custom-field-row .custom-field-value {
+    min-width: 0;
+  }
+}
+
+/* ==========================================================================
+   20. Utility Classes
+   ========================================================================== */
+
+.tool-hidden {
+  display: none !important;
+}
+
+.tool-mt-1 { margin-top: 0.5rem; }
+.tool-mt-2 { margin-top: 1rem; }
+.tool-mb-1 { margin-bottom: 0.5rem; }
+.tool-mb-2 { margin-bottom: 1rem; }
+.tool-text-center { text-align: center; }
+.tool-text-mono {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+}
