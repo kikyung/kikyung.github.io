@@ -25,6 +25,10 @@ package-lock.json
 # Serena
 .serena
 
+# Claude skills
+.claude/skills/tistory-blogger
+CLAUDE.md
+
 # Misc
 _sass/vendors
 assets/js/dist
