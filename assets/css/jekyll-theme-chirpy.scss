@@ -1,0 +1,692 @@
+---
+---
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+/* ============================================================
+   KiKyung's Blog — Custom Typography & Readability
+   Chirpy 7.x override
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   1. Font Family — Pretendard (Korean-optimized)
+   ---------------------------------------------------------- */
+:root {
+  --content-font-family: 'Pretendard Variable', Pretendard,
+    -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+    'Helvetica Neue', 'Segoe UI',
+    'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic',
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    sans-serif;
+
+  --code-font-family: 'JetBrains Mono', 'Fira Code',
+    SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+}
+
+/* Apply font globally */
+body {
+  font-family: var(--content-font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ----------------------------------------------------------
+   2. Content Typography — 가독성 핵심
+   ---------------------------------------------------------- */
+.content {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  letter-spacing: -0.01em;
+  word-break: keep-all;        /* 한국어 단어 단위 줄바꿈 */
+  overflow-wrap: break-word;
+}
+
+/* Paragraph spacing */
+.content p {
+  margin-bottom: 1.4rem;
+}
+
+/* ----------------------------------------------------------
+   3. Headings — 명확한 위계
+   ---------------------------------------------------------- */
+h1, h2, h3, h4, h5 {
+  font-family: var(--content-font-family);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  word-break: keep-all;
+}
+
+#core-wrapper h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--main-border-color);
+}
+
+#core-wrapper h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+#core-wrapper h4 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+
+/* ----------------------------------------------------------
+   4. Bold — 더 또렷하게
+   ---------------------------------------------------------- */
+strong, b {
+  font-weight: 700;
+}
+
+/* ----------------------------------------------------------
+   5. Lists — 여유 있는 간격
+   ---------------------------------------------------------- */
+.content li {
+  margin-bottom: 0.35rem;
+  line-height: 1.8;
+}
+
+.content li > p {
+  margin-bottom: 0.5rem;
+}
+
+.content ul, .content ol {
+  padding-left: 1.5rem;
+}
+
+/* ----------------------------------------------------------
+   6. Blockquote — 깔끔한 인용
+   ---------------------------------------------------------- */
+.content blockquote {
+  border-left-width: 3px;
+  padding: 0.6rem 1.2rem;
+  margin: 1.5rem 0;
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+
+.content blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* ----------------------------------------------------------
+   7. Code — JetBrains Mono
+   ---------------------------------------------------------- */
+code, pre, .highlight {
+  font-family: var(--code-font-family);
+}
+
+/* Inline code */
+.content > p code,
+.content > li code,
+.content > blockquote code {
+  font-size: 0.88em;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  word-break: break-all;
+}
+
+/* Code block font size */
+.highlight code,
+.highlight pre {
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* ----------------------------------------------------------
+   8. Links — 부드러운 밑줄
+   ---------------------------------------------------------- */
+.content a:not(.img-link):not(.btn) {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: var(--link-underline-color);
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.content a:not(.img-link):not(.btn):hover {
+  text-decoration-color: var(--link-color);
+}
+
+/* ----------------------------------------------------------
+   9. HR — 섹션 구분선
+   ---------------------------------------------------------- */
+.content hr {
+  margin: 2.5rem 0;
+  border: none;
+  border-top: 1px solid var(--main-border-color);
+}
+
+/* ----------------------------------------------------------
+   10. Sidebar & Topbar — Pretendard 적용
+   ---------------------------------------------------------- */
+#sidebar,
+#topbar,
+#search-results,
+.post-meta {
+  font-family: var(--content-font-family);
+}
+
+#sidebar .site-title {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+#sidebar .site-subtitle {
+  letter-spacing: -0.01em;
+}
+
+/* ----------------------------------------------------------
+   11. Post Meta & Tags — 깔끔한 보조 텍스트
+   ---------------------------------------------------------- */
+.post-meta {
+  font-size: 0.88rem;
+  letter-spacing: -0.01em;
+}
+
+/* ----------------------------------------------------------
+   12. Table — 읽기 쉬운 표
+   ---------------------------------------------------------- */
+.table-wrapper > table {
+  font-size: 0.92rem;
+}
+
+.table-wrapper > table tr th,
+.table-wrapper > table tr td {
+  padding: 0.55rem 0.9rem;
+  line-height: 1.6;
+  vertical-align: top;
+}
+
+/* ----------------------------------------------------------
+   13. TOC — 목차 가독성
+   ---------------------------------------------------------- */
+#toc-wrapper li a {
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+/* ----------------------------------------------------------
+   14. Post Title
+   ---------------------------------------------------------- */
+.post h1.dynamic-title,
+h1#post-title {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.35;
+  word-break: keep-all;
+}
+
+/* ----------------------------------------------------------
+   15. Home — 포스트 카드 가독성
+   ---------------------------------------------------------- */
+#post-list .card-text {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+}
+
+/* ----------------------------------------------------------
+   16. Mobile 반응형 미세 조정
+   ---------------------------------------------------------- */
+@media (max-width: 576px) {
+  .content {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  #core-wrapper h2 {
+    margin-top: 2rem;
+  }
+
+  #core-wrapper h3 {
+    margin-top: 1.5rem;
+  }
+}
+
+/* ============================================================
+   PART 2 — Visual Polish & 외형 개선
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   17. Brand Accent Color
+   ---------------------------------------------------------- */
+:root,
+html[data-mode="light"] {
+  --accent: #4361ee;
+  --accent-light: #6880f5;
+  --accent-bg: rgba(67, 97, 238, 0.06);
+  --accent-border: rgba(67, 97, 238, 0.15);
+  --card-radius: 12px;
+  --transition-base: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Slightly warm background instead of pure white */
+  --main-bg: #fafbfc;
+
+  /* Warmer link color */
+  --link-color: #3b5bdb;
+  --toc-highlight: #4361ee;
+}
+
+html[data-mode="dark"] {
+  --accent: #748ffc;
+  --accent-light: #91a7ff;
+  --accent-bg: rgba(116, 143, 252, 0.08);
+  --accent-border: rgba(116, 143, 252, 0.2);
+  --card-radius: 12px;
+
+  --link-color: #91a7ff;
+  --toc-highlight: #748ffc;
+}
+
+/* ----------------------------------------------------------
+   18. Text Selection — 브랜드 컬러 하이라이트
+   ---------------------------------------------------------- */
+::selection {
+  background: rgba(67, 97, 238, 0.18);
+  color: inherit;
+}
+
+/* ----------------------------------------------------------
+   19. Sidebar — 생기 있는 네비게이션
+   ---------------------------------------------------------- */
+#sidebar {
+  background: linear-gradient(180deg, #f0f2f8 0%, #f6f8fa 100%);
+}
+
+html[data-mode="dark"] #sidebar {
+  background: linear-gradient(180deg, #1e2030 0%, #1b1b1e 100%);
+}
+
+/* Avatar ring */
+#sidebar #avatar > a {
+  position: relative;
+}
+
+#sidebar #avatar img {
+  border: 3px solid var(--accent-border);
+  transition: border-color var(--transition-base), transform var(--transition-base);
+}
+
+#sidebar #avatar img:hover {
+  border-color: var(--accent);
+  transform: scale(1.04);
+}
+
+/* Active nav item accent bar */
+#sidebar .nav-item.active .nav-link {
+  color: var(--accent) !important;
+  font-weight: 600;
+  position: relative;
+}
+
+#sidebar .nav-item.active .nav-link::before {
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: 25%;
+  height: 50%;
+  width: 3px;
+  background: var(--accent);
+  border-radius: 0 3px 3px 0;
+}
+
+/* Nav hover */
+#sidebar .nav-link {
+  transition: color var(--transition-base), background var(--transition-base);
+  border-radius: 8px;
+}
+
+#sidebar .nav-link:hover {
+  color: var(--accent) !important;
+  background: var(--accent-bg);
+}
+
+/* Site title hover */
+#sidebar .site-title a:hover {
+  color: var(--accent) !important;
+}
+
+/* Social icons hover */
+#sidebar .sidebar-bottom a {
+  transition: color var(--transition-base), transform var(--transition-base);
+}
+
+#sidebar .sidebar-bottom a:hover {
+  color: var(--accent) !important;
+  transform: translateY(-2px);
+}
+
+/* ----------------------------------------------------------
+   20. Post Cards (Home) — 입체감 + 호버 효과
+   ---------------------------------------------------------- */
+#post-list .card {
+  border: 1px solid var(--main-border-color);
+  border-radius: var(--card-radius);
+  background: var(--card-bg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  transition: transform var(--transition-base),
+              box-shadow var(--transition-base),
+              border-color var(--transition-base);
+  overflow: hidden;
+}
+
+#post-list .card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08), 0 3px 10px rgba(0, 0, 0, 0.04);
+  border-color: var(--accent-border);
+}
+
+/* Post title in card — accent on hover */
+#post-list .card .card-body > .card-title a {
+  transition: color var(--transition-base);
+}
+
+#post-list .card .card-body > .card-title a:hover {
+  color: var(--accent) !important;
+}
+
+/* Card body padding */
+#post-list .card .card-body {
+  padding: 1.4rem 1.5rem;
+}
+
+/* Post preview text */
+#post-list .card .card-text.content {
+  color: var(--text-muted-color);
+}
+
+/* Post meta in card */
+#post-list .card .post-meta {
+  opacity: 0.7;
+  transition: opacity var(--transition-base);
+}
+
+#post-list .card:hover .post-meta {
+  opacity: 1;
+}
+
+/* Card gap */
+#post-list .card-wrapper {
+  margin-bottom: 1.2rem;
+}
+
+/* ----------------------------------------------------------
+   21. Tags & Categories — 컬러 뱃지
+   ---------------------------------------------------------- */
+/* Tag pills */
+.post-tag,
+a.tag {
+  border-radius: 20px !important;
+  padding: 0.25rem 0.75rem !important;
+  font-size: 0.8rem;
+  transition: background var(--transition-base),
+              color var(--transition-base),
+              transform var(--transition-base);
+}
+
+.post-tag:hover,
+a.tag:hover {
+  background: var(--accent) !important;
+  color: white !important;
+  transform: translateY(-1px);
+}
+
+/* Category links */
+.categories .card-body a {
+  transition: color var(--transition-base);
+}
+
+.categories .card-body a:hover {
+  color: var(--accent) !important;
+}
+
+/* ----------------------------------------------------------
+   22. Right Panel — 카드 스타일
+   ---------------------------------------------------------- */
+#panel-wrapper .panel-heading {
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: -0.01em;
+  color: var(--heading-color);
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--accent);
+  margin-bottom: 0.8rem;
+  display: inline-block;
+}
+
+/* Trending tags section */
+#panel-wrapper .access {
+  padding: 1rem;
+  border-radius: var(--card-radius);
+  background: var(--card-bg);
+  border: 1px solid var(--main-border-color);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  margin-bottom: 1rem;
+}
+
+/* ----------------------------------------------------------
+   23. Post Detail — 포스트 상세 페이지
+   ---------------------------------------------------------- */
+/* Post title */
+h1#post-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Post meta area */
+.post-meta .meta-item {
+  transition: color var(--transition-base);
+}
+
+/* TOC active highlight */
+#toc-wrapper li.active > a {
+  color: var(--accent) !important;
+  font-weight: 600;
+}
+
+/* TOC border */
+nav#toc-wrapper {
+  border-left: 2px solid var(--main-border-color);
+}
+
+nav#toc-wrapper li.active > a {
+  border-left: 2px solid var(--accent);
+  margin-left: -2px;
+  padding-left: 0.8rem;
+}
+
+/* ----------------------------------------------------------
+   24. Blockquote — 포인트 컬러 보더
+   ---------------------------------------------------------- */
+.content blockquote {
+  border-left-color: var(--accent);
+  background: var(--accent-bg);
+  border-radius: 0 8px 8px 0;
+}
+
+/* ----------------------------------------------------------
+   25. Inline Code — 부드러운 배경
+   ---------------------------------------------------------- */
+.content > p code,
+.content > li code,
+.content > blockquote code,
+.content > h2 code,
+.content > h3 code,
+.content > h4 code {
+  background: var(--inline-code-bg);
+  border-radius: 5px;
+  padding: 0.15em 0.45em;
+  font-size: 0.87em;
+}
+
+/* ----------------------------------------------------------
+   26. Code Block — 둥근 모서리
+   ---------------------------------------------------------- */
+div[class^="language-"] {
+  border-radius: 10px !important;
+  overflow: hidden;
+  border: 1px solid var(--language-border-color);
+}
+
+div[class^="language-"] .code-header {
+  border-radius: 10px 10px 0 0;
+}
+
+/* ----------------------------------------------------------
+   27. Topbar — 깔끔한 상단바
+   ---------------------------------------------------------- */
+#topbar {
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+}
+
+#breadcrumb a {
+  transition: color var(--transition-base);
+}
+
+#breadcrumb a:hover {
+  color: var(--accent) !important;
+}
+
+/* Search input focus */
+#search-input:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+/* ----------------------------------------------------------
+   28. Pagination — 둥근 버튼
+   ---------------------------------------------------------- */
+.pagination .page-link {
+  border-radius: 8px !important;
+  margin: 0 2px;
+  transition: background var(--transition-base),
+              color var(--transition-base),
+              transform var(--transition-base);
+}
+
+.pagination .page-item.active .page-link {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: white !important;
+}
+
+.pagination .page-link:hover {
+  background: var(--accent-bg);
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* ----------------------------------------------------------
+   29. Scrollbar — 얇고 깔끔한 스크롤바
+   ---------------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+html[data-mode="dark"] ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+html[data-mode="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ----------------------------------------------------------
+   30. Back to Top — 브랜드 컬러
+   ---------------------------------------------------------- */
+#back-to-top {
+  transition: opacity var(--transition-base),
+              transform var(--transition-base),
+              background var(--transition-base);
+  border-radius: 50% !important;
+}
+
+#back-to-top:hover {
+  background: var(--accent) !important;
+  color: white !important;
+  transform: translateY(-3px);
+  border-color: var(--accent) !important;
+}
+
+/* ----------------------------------------------------------
+   31. Footer — 부드러운 구분
+   ---------------------------------------------------------- */
+footer {
+  border-top: 1px solid var(--main-border-color);
+}
+
+footer a {
+  transition: color var(--transition-base);
+}
+
+footer a:hover {
+  color: var(--accent) !important;
+}
+
+/* ----------------------------------------------------------
+   32. Smooth Transitions — 전체 부드러운 전환
+   ---------------------------------------------------------- */
+a, button, .btn, .nav-link, .card, input {
+  transition: all var(--transition-base);
+}
+
+/* ----------------------------------------------------------
+   33. Post Share Buttons
+   ---------------------------------------------------------- */
+.share-wrapper .share-icons a {
+  transition: color var(--transition-base), transform var(--transition-base);
+}
+
+.share-wrapper .share-icons a:hover {
+  color: var(--accent) !important;
+  transform: scale(1.15);
+}
+
+/* ----------------------------------------------------------
+   34. Prompt Boxes — 둥근 모서리
+   ---------------------------------------------------------- */
+.prompt-tip, .prompt-info, .prompt-warning, .prompt-danger {
+  border-radius: 8px;
+}
+
+/* ----------------------------------------------------------
+   35. Mobile 반응형 — 비주얼 조정
+   ---------------------------------------------------------- */
+@media (max-width: 576px) {
+  #post-list .card {
+    border-radius: 10px;
+  }
+
+  #post-list .card .card-body {
+    padding: 1.1rem 1.2rem;
+  }
+
+  h1#post-title {
+    font-size: 1.6rem;
+  }
+}
