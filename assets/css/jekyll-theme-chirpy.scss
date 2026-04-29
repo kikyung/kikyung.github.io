@@ -158,12 +158,27 @@ code, pre, .highlight {
 }
 
 /* ----------------------------------------------------------
-   9. HR — 섹션 구분선
+   9. HR — 섹션 구분선 (accent dot divider)
    ---------------------------------------------------------- */
 .content hr {
-  margin: 2.5rem 0;
+  margin: 3rem auto;
   border: none;
-  border-top: 1px solid var(--main-border-color);
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+.content hr::before {
+  content: '· · ·';
+  display: block;
+  text-align: center;
+  letter-spacing: 0.6em;
+  font-size: 1.2rem;
+  color: var(--accent);
+  opacity: 0.45;
 }
 
 /* ----------------------------------------------------------
