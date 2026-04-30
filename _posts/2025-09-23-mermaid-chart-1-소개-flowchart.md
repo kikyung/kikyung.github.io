@@ -7,6 +7,7 @@ categories:
 tags:
   - mermaid
   - diagram
+series: "Mermaid Chart"
 ---
 ## 1. Mermaid의 필요성과 소개 ([공식문서](https://docs.mermaidchart.com/mermaid-oss/intro/index.html))
 

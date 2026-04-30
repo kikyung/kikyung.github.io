@@ -1,0 +1,47 @@
+{% comment %}
+  읽기 프로그레스 바
+  - 포스트 페이지에서만 표시
+  - 스크롤 위치에 따라 상단에 얇은 프로그레스 바 표시
+{% endcomment %}
+
+{% if page.layout == 'post' %}
+<div id="reading-progress-bar" aria-hidden="true"></div>
+<script>
+(function() {
+  var bar = document.getElementById('reading-progress-bar');
+  if (!bar) return;
+
+  var ticking = false;
+
+  function updateProgress() {
+    var article = document.querySelector('article .content');
+    if (!article) { ticking = false; return; }
+
+    var rect = article.getBoundingClientRect();
+    var articleTop = rect.top + window.pageYOffset;
+    var articleHeight = article.offsetHeight;
+    var windowHeight = window.innerHeight;
+    var scrolled = window.pageYOffset - articleTop;
+    var total = articleHeight - windowHeight;
+
+    var progress = 0;
+    if (total > 0) {
+      progress = Math.min(Math.max(scrolled / total, 0), 1) * 100;
+    }
+
+    bar.style.width = progress + '%';
+    bar.style.opacity = progress > 0 && progress < 100 ? '1' : '0';
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(updateProgress);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  updateProgress();
+})();
+</script>
+{% endif %}

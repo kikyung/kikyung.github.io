@@ -7,6 +7,7 @@ categories:
 tags:
   - mermaid
   - diagram
+series: "Mermaid Chart"
 ---
 # 상태 기반 흐름 설계
 

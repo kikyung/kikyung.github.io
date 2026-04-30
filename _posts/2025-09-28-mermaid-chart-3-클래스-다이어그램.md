@@ -7,6 +7,7 @@ categories:
 tags:
   - mermaid
   - diagram
+series: "Mermaid Chart"
 ---
 ## 1. 클래스 다이어그램이란?
 

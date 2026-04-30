@@ -7,6 +7,7 @@ categories:
 tags:
   - Spring
   - webflux
+series: "Spring WebFlux"
 ---
 ## **Flux**란
 

@@ -1,0 +1,82 @@
+{% comment %}
+  시리즈 네비게이션 컴포넌트
+  - front matter에 series: "시리즈명" 이 있는 포스트들을 자동으로 묶어 표시
+  - 현재 글을 하이라이트하고, 이전/다음 글 이동 지원
+{% endcomment %}
+
+{% if page.series %}
+  {% assign series_name = page.series %}
+  {% assign series_posts = site.posts | where: "series", series_name | sort: "date" %}
+
+  {% if series_posts.size > 1 %}
+    {% comment %} 현재 글의 인덱스 찾기 {% endcomment %}
+    {% assign current_index = -1 %}
+    {% for p in series_posts %}
+      {% if p.url == page.url %}
+        {% assign current_index = forloop.index0 %}
+      {% endif %}
+    {% endfor %}
+
+    {% assign prev_index = current_index | minus: 1 %}
+    {% assign next_index = current_index | plus: 1 %}
+    {% assign current_num = current_index | plus: 1 %}
+
+    <div class="series-nav" role="navigation" aria-label="시리즈 네비게이션">
+      <div class="series-header">
+        <div class="series-title-row">
+          <i class="fas fa-layer-group series-icon"></i>
+          <span class="series-label">{{ series_name }}</span>
+          <span class="series-count">{{ current_num }} / {{ series_posts.size }}</span>
+        </div>
+        <button class="series-toggle" type="button" aria-expanded="false" aria-controls="series-list">
+          <i class="fas fa-chevron-down"></i>
+        </button>
+      </div>
+
+      <ol class="series-list" id="series-list">
+        {% for p in series_posts %}
+          <li class="series-item{% if p.url == page.url %} active{% endif %}">
+            {% if p.url == page.url %}
+              <span class="series-link current">
+                <span class="series-num">{{ forloop.index }}</span>
+                <span class="series-item-title">{{ p.title }}</span>
+                <i class="fas fa-bookmark series-current-icon"></i>
+              </span>
+            {% else %}
+              <a href="{{ p.url | relative_url }}" class="series-link">
+                <span class="series-num">{{ forloop.index }}</span>
+                <span class="series-item-title">{{ p.title }}</span>
+              </a>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ol>
+
+      <div class="series-footer">
+        {% if prev_index >= 0 %}
+          <a href="{{ series_posts[prev_index].url | relative_url }}" class="series-nav-btn prev" title="{{ series_posts[prev_index].title }}">
+            <i class="fas fa-arrow-left"></i>
+            <span>이전 글</span>
+          </a>
+        {% else %}
+          <span class="series-nav-btn prev disabled">
+            <i class="fas fa-arrow-left"></i>
+            <span>이전 글</span>
+          </span>
+        {% endif %}
+
+        {% if next_index < series_posts.size %}
+          <a href="{{ series_posts[next_index].url | relative_url }}" class="series-nav-btn next" title="{{ series_posts[next_index].title }}">
+            <span>다음 글</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        {% else %}
+          <span class="series-nav-btn next disabled">
+            <span>다음 글</span>
+            <i class="fas fa-arrow-right"></i>
+          </span>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+{% endif %}

@@ -7,6 +7,7 @@ categories:
 tags:
   - mermaid
   - diagram
+series: "Mermaid Chart"
 ---
 # 데이터베이스 설계 시각화
 
