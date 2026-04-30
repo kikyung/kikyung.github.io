@@ -8,6 +8,7 @@ tags:
   - python
   - venv
   - pip
+series: "파이썬 정리"
 ---
 # 파이썬 설치 및 기초
 

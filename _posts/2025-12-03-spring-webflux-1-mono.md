@@ -7,6 +7,7 @@ categories:
 tags:
   - Spring
   - webflux
+series: "Spring WebFlux"
 ---
 ## Spring WebFlux란
 Spring 5부터 도입된 리액티브 프로그래밍 기반의 웹 프레임워크입니다. 기존 Spring MVC가 동기/블로킹 방식이라면, WebFlux는 비동기/논블로킹 방식으로 동작하여 적은 스레드로 많은 요청을 효율적으로 처리할 수 있습니다.

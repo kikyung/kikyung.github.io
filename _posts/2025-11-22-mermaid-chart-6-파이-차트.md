@@ -7,6 +7,7 @@ categories:
 tags:
   - mermaid
   - diagram
+series: "Mermaid Chart"
 ---
 ## 데이터 비율 시각화
 

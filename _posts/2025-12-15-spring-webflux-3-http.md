@@ -7,6 +7,7 @@ categories:
 tags:
   - Spring
   - webflux
+series: "Spring WebFlux"
 ---
 ### 이번 글에서 다룰 내용
 

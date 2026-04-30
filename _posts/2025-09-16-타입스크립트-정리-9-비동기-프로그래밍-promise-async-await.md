@@ -7,6 +7,7 @@ categories:
 tags:
   - typescript
   - async
+series: "타입스크립트 정리"
 ---
 ## 1. Promise: 약속!
 

@@ -6,6 +6,7 @@ categories:
   - TS
 tags:
   - typescript
+series: "타입스크립트 정리"
 ---
 ## 인터페이스란?
 
