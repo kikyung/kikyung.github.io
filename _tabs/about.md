@@ -11,7 +11,7 @@ order: 5
 ## 소개
 - RXC 백엔드실
 - [PRIZM](https://mweb.prizm.co.kr)
-- [Youtube Shorts](https://www.youtube.com/@놀사-v3)
+- [Youtube Shorts](https://www.youtube.com/@놀사-v3/shorts)
 
 ## 관심 분야
 - DevOps
