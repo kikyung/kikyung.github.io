@@ -42,15 +42,15 @@ body {
    ---------------------------------------------------------- */
 .content {
   font-size: 1.05rem;
-  line-height: 1.85;
+  line-height: 1.9;
   letter-spacing: -0.01em;
   word-break: keep-all;        /* 한국어 단어 단위 줄바꿈 */
   overflow-wrap: break-word;
 }
 
-/* Paragraph spacing */
+/* Paragraph spacing — 문단 간 충분한 호흡 */
 .content p {
-  margin-bottom: 1.4rem;
+  margin-bottom: 1.6rem;
 }
 
 /* ----------------------------------------------------------
@@ -64,20 +64,23 @@ h1, h2, h3, h4, h5 {
 }
 
 #core-wrapper h2 {
-  margin-top: 2.5rem;
-  margin-bottom: 1.2rem;
-  padding-bottom: 0.4rem;
+  margin-top: 3.2rem;
+  margin-bottom: 1.4rem;
+  padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--main-border-color);
+  font-size: 1.55rem;
 }
 
 #core-wrapper h3 {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  margin-top: 2.4rem;
+  margin-bottom: 1.1rem;
+  font-size: 1.25rem;
 }
 
 #core-wrapper h4 {
-  margin-top: 1.5rem;
-  margin-bottom: 0.8rem;
+  margin-top: 1.8rem;
+  margin-bottom: 0.9rem;
+  font-size: 1.1rem;
 }
 
 /* ----------------------------------------------------------
@@ -91,8 +94,8 @@ strong, b {
    5. Lists — 여유 있는 간격
    ---------------------------------------------------------- */
 .content li {
-  margin-bottom: 0.35rem;
-  line-height: 1.8;
+  margin-bottom: 0.45rem;
+  line-height: 1.85;
 }
 
 .content li > p {
@@ -101,6 +104,7 @@ strong, b {
 
 .content ul, .content ol {
   padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 /* ----------------------------------------------------------
@@ -108,10 +112,10 @@ strong, b {
    ---------------------------------------------------------- */
 .content blockquote {
   border-left-width: 3px;
-  padding: 0.6rem 1.2rem;
-  margin: 1.5rem 0;
-  font-size: 0.98rem;
-  line-height: 1.8;
+  padding: 0.8rem 1.4rem;
+  margin: 1.8rem 0;
+  font-size: 1rem;
+  line-height: 1.85;
 }
 
 .content blockquote p:last-child {
@@ -161,7 +165,7 @@ code, pre, .highlight {
    9. HR — 섹션 구분선 (accent dot divider)
    ---------------------------------------------------------- */
 .content hr {
-  margin: 3rem auto;
+  margin: 3.5rem auto;
   border: none;
   width: 100%;
   height: auto;
@@ -256,15 +260,21 @@ h1#post-title {
 @media (max-width: 576px) {
   .content {
     font-size: 1rem;
-    line-height: 1.8;
+    line-height: 1.85;
+  }
+
+  .content p {
+    margin-bottom: 1.4rem;
   }
 
   #core-wrapper h2 {
-    margin-top: 2rem;
+    margin-top: 2.5rem;
+    font-size: 1.4rem;
   }
 
   #core-wrapper h3 {
-    margin-top: 1.5rem;
+    margin-top: 1.8rem;
+    font-size: 1.15rem;
   }
 }
 
@@ -521,12 +531,13 @@ nav#toc-wrapper li.active > a {
 }
 
 /* ----------------------------------------------------------
-   24. Blockquote — 포인트 컬러 보더
+   24. Blockquote — 포인트 컬러 보더 + 충분한 공간
    ---------------------------------------------------------- */
 .content blockquote {
   border-left-color: var(--accent);
   background: var(--accent-bg);
   border-radius: 0 8px 8px 0;
+  padding: 1rem 1.4rem;
 }
 
 /* ----------------------------------------------------------
