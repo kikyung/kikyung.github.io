@@ -285,14 +285,17 @@ h1#post-title {
 /* ----------------------------------------------------------
    17. Brand Accent Color
    ---------------------------------------------------------- */
+:root {
+  --card-radius: 12px;
+  --transition-base: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 :root,
 html[data-mode="light"] {
   --accent: #4361ee;
   --accent-light: #6880f5;
   --accent-bg: rgba(67, 97, 238, 0.06);
   --accent-border: rgba(67, 97, 238, 0.15);
-  --card-radius: 12px;
-  --transition-base: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Slightly warm background instead of pure white */
   --main-bg: #fafbfc;
@@ -307,10 +310,22 @@ html[data-mode="dark"] {
   --accent-light: #91a7ff;
   --accent-bg: rgba(116, 143, 252, 0.08);
   --accent-border: rgba(116, 143, 252, 0.2);
-  --card-radius: 12px;
 
   --link-color: #91a7ff;
   --toc-highlight: #748ffc;
+}
+
+/* System dark mode fallback (when no data-mode attribute is set) */
+@media (prefers-color-scheme: dark) {
+  html:not([data-mode]) {
+    --accent: #748ffc;
+    --accent-light: #91a7ff;
+    --accent-bg: rgba(116, 143, 252, 0.08);
+    --accent-border: rgba(116, 143, 252, 0.2);
+
+    --link-color: #91a7ff;
+    --toc-highlight: #748ffc;
+  }
 }
 
 /* ----------------------------------------------------------
@@ -324,12 +339,25 @@ html[data-mode="dark"] {
 /* ----------------------------------------------------------
    19. Sidebar — 생기 있는 네비게이션
    ---------------------------------------------------------- */
-#sidebar {
+html[data-mode="light"] #sidebar {
   background: linear-gradient(180deg, #f0f2f8 0%, #f6f8fa 100%);
 }
 
 html[data-mode="dark"] #sidebar {
   background: linear-gradient(180deg, #1e2030 0%, #1b1b1e 100%);
+}
+
+/* System dark mode fallback (when theme_mode is empty, no data-mode attribute) */
+@media (prefers-color-scheme: dark) {
+  html:not([data-mode]) #sidebar {
+    background: linear-gradient(180deg, #1e2030 0%, #1b1b1e 100%);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  html:not([data-mode]) #sidebar {
+    background: linear-gradient(180deg, #f0f2f8 0%, #f6f8fa 100%);
+  }
 }
 
 /* Avatar ring */
