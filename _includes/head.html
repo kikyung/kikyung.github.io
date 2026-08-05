@@ -119,14 +119,26 @@
 
   <!-- Scripts -->
 
-  <!-- Prefer light as first-visit default while keeping theme toggle visible -->
+  <!-- 
+    테마 모드 초기화 (FOUC 방지)
+    - 저장된 값이 있으면 즉시 적용
+    - 저장된 값이 없으면 data-mode 속성을 설정하지 않고,
+      CSS의 @media (prefers-color-scheme) 규칙이 시스템 설정을 따르도록 함
+    - 사용자가 토글로 모드를 변경하면 sessionStorage에 저장됨
+  -->
   <script>
     (function () {
       try {
         var key = 'mode';
-        if (!sessionStorage.getItem(key)) {
-          sessionStorage.setItem(key, 'light');
+        var html = document.documentElement;
+        var stored = sessionStorage.getItem(key);
+        
+        if (stored) {
+          // 저장된 값이 있으면 즉시 적용 (FOUC 방지)
+          html.setAttribute('data-mode', stored);
         }
+        // else: data-mode 속성을 설정하지 않으면 CSS의
+        // html:not([data-mode]) + @media (prefers-color-scheme) 규칙이 적용됨
       } catch (e) {}
     })();
   </script>

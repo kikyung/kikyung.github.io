@@ -290,6 +290,7 @@ h1#post-title {
   --transition-base: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Light 모드 기본값 + 명시적 Light 모드 */
 :root,
 html[data-mode="light"] {
   --accent: #4361ee;
@@ -305,6 +306,7 @@ html[data-mode="light"] {
   --toc-highlight: #4361ee;
 }
 
+/* 명시적 Dark 모드 */
 html[data-mode="dark"] {
   --accent: #748ffc;
   --accent-light: #91a7ff;
@@ -315,7 +317,22 @@ html[data-mode="dark"] {
   --toc-highlight: #748ffc;
 }
 
-/* System dark mode fallback (when no data-mode attribute is set) */
+/* 시스템 설정 따름 (data-mode 속성 없을 때) */
+/* 시스템 Light 모드 */
+@media (prefers-color-scheme: light) {
+  html:not([data-mode]) {
+    --accent: #4361ee;
+    --accent-light: #6880f5;
+    --accent-bg: rgba(67, 97, 238, 0.06);
+    --accent-border: rgba(67, 97, 238, 0.15);
+
+    --main-bg: #fafbfc;
+    --link-color: #3b5bdb;
+    --toc-highlight: #4361ee;
+  }
+}
+
+/* 시스템 Dark 모드 */
 @media (prefers-color-scheme: dark) {
   html:not([data-mode]) {
     --accent: #748ffc;
@@ -339,24 +356,50 @@ html[data-mode="dark"] {
 /* ----------------------------------------------------------
    19. Sidebar — 생기 있는 네비게이션
    ---------------------------------------------------------- */
+
+/* 
+ * Light/Dark Mode Sidebar Background
+ * 
+ * CSS 선택자 우선순위:
+ * 1. html[data-mode="light"] #sidebar - 명시적 Light 모드 (특이성: 0,2,0)
+ * 2. html[data-mode="dark"] #sidebar  - 명시적 Dark 모드 (특이성: 0,2,0)
+ * 3. html:not([data-mode]) #sidebar   - 시스템 설정 따름 (특이성: 0,2,0)
+ * 4. #sidebar                         - 기본값/fallback (특이성: 0,1,0)
+ *
+ * 동작 원리:
+ * - data-mode 속성이 있으면 → 명시적 규칙(1 또는 2)이 적용됨
+ * - data-mode 속성이 없으면 → 미디어 쿼리 규칙(3)이 적용됨
+ * - 미디어 쿼리 미지원 브라우저 → 기본값(4)이 적용됨
+ *
+ * 참고: html:not([data-mode])는 html[data-mode]와 상호 배타적이므로
+ * 특이성이 같아도 동시에 적용되지 않음.
+ */
+
+/* 기본값/fallback: 미디어 쿼리 미지원 브라우저용 */
+#sidebar {
+  background: linear-gradient(180deg, #f0f2f8 0%, #f6f8fa 100%);
+}
+
+/* 명시적 Light 모드 (사용자가 Light 토글 선택) */
 html[data-mode="light"] #sidebar {
   background: linear-gradient(180deg, #f0f2f8 0%, #f6f8fa 100%);
 }
 
+/* 명시적 Dark 모드 (사용자가 Dark 토글 선택) */
 html[data-mode="dark"] #sidebar {
   background: linear-gradient(180deg, #1e2030 0%, #1b1b1e 100%);
 }
 
-/* System dark mode fallback (when theme_mode is empty, no data-mode attribute) */
-@media (prefers-color-scheme: dark) {
-  html:not([data-mode]) #sidebar {
-    background: linear-gradient(180deg, #1e2030 0%, #1b1b1e 100%);
-  }
-}
-
+/* 시스템 설정 따름 (첫 방문 또는 data-mode 속성 없을 때) */
 @media (prefers-color-scheme: light) {
   html:not([data-mode]) #sidebar {
     background: linear-gradient(180deg, #f0f2f8 0%, #f6f8fa 100%);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-mode]) #sidebar {
+    background: linear-gradient(180deg, #1e2030 0%, #1b1b1e 100%);
   }
 }
 
@@ -662,12 +705,35 @@ div[class^="language-"] .code-header {
   background: rgba(0, 0, 0, 0.25);
 }
 
+/* 명시적 Dark 모드 */
 html[data-mode="dark"] ::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.15);
 }
 
 html[data-mode="dark"] ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.25);
+}
+
+/* 시스템 Dark 모드 fallback */
+@media (prefers-color-scheme: dark) {
+  html:not([data-mode]) ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  html:not([data-mode]) ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+}
+
+/* 시스템 Light 모드 fallback */
+@media (prefers-color-scheme: light) {
+  html:not([data-mode]) ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+  }
+
+  html:not([data-mode]) ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.25);
+  }
 }
 
 /* ----------------------------------------------------------
