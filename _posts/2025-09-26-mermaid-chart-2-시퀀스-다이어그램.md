@@ -3,7 +3,6 @@ title: "Mermaid Chart #2 - 시퀀스 다이어그램"
 date: 2025-09-27T01:40:00.000+09:00
 categories:
   - 개발
-  - 설계
 tags:
   - mermaid
   - diagram

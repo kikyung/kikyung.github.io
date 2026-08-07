@@ -3,7 +3,6 @@ title: "Mermaid Chart #5 - ER 다이어그램"
 date: 2025-10-11T23:47:00.000+09:00
 categories:
   - 개발
-  - 설계
 tags:
   - mermaid
   - diagram

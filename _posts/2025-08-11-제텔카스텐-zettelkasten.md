@@ -2,8 +2,7 @@
 title: 제텔카스텐 (Zettelkasten)
 date: 2025-08-12T00:58:00.000+09:00
 categories:
-  - 성장
-  - 정리방법
+  - 성장·학습
 tags:
   - Obsidian
 ---

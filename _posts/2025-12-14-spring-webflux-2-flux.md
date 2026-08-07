@@ -3,7 +3,6 @@ title: "Spring WebFlux #2 - Flux"
 date: 2025-12-15T00:41:00.000+09:00
 categories:
   - 개발
-  - 스프링(WebFlux)
 tags:
   - Spring
   - webflux

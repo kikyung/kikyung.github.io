@@ -3,7 +3,6 @@ title: "Spring WebFlux #1 - Mono"
 date: 2025-12-03T01:32:00.000+09:00
 categories:
   - 개발
-  - 스프링(WebFlux)
 tags:
   - Spring
   - webflux

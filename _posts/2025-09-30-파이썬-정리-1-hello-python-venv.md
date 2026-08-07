@@ -3,7 +3,6 @@ title: "파이썬 정리 #1 - Hello python, venv"
 date: 2025-09-30T23:52:00.000+09:00
 categories:
   - 개발
-  - 파이썬
 tags:
   - python
   - venv

@@ -3,7 +3,6 @@ title: iPad로 맥북 원격 제어(RVNC Viewer)
 date: 2025-09-11T00:26:00.000+09:00
 categories:
   - 개발
-  - 환경
 tags:
   - VNC
 ---

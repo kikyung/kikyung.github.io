@@ -3,7 +3,6 @@ title: "Mermaid Chart #6 - 파이 차트"
 date: 2025-11-23T02:01:00.000+09:00
 categories:
   - 개발
-  - 설계
 tags:
   - mermaid
   - diagram

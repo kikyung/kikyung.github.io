@@ -3,7 +3,6 @@ title: "타입스크립트 정리 #10 - Pipe와 Compose 함수"
 date: 2025-09-27T23:07:00.000+09:00
 categories:
   - 개발
-  - TS
 tags:
   - typescript
 series: "타입스크립트 정리"
