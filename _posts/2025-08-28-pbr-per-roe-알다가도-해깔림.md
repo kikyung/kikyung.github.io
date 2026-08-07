@@ -2,8 +2,7 @@
 title: PBR, PER, ROE 알다가도 해깔림
 date: 2025-08-29T01:33:00.000+09:00
 categories:
-  - 성장
-  - 투자
+  - 성장·학습
 tags:
   - 주식
 ---

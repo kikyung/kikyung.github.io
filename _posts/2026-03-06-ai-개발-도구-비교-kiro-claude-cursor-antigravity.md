@@ -3,7 +3,6 @@ title: AI 개발 도구 비교 (Kiro, Claude, Cursor, Antigravity)
 date: 2026-03-07T01:07:00.000+09:00
 categories:
   - 개발
-  - AI
 tags:
   - 코딩에이전트
 ---

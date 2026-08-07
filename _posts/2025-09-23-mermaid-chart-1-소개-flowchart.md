@@ -3,7 +3,6 @@ title: "Mermaid Chart #1 - 소개,Flowchart"
 date: 2025-09-24T01:08:00.000+09:00
 categories:
   - 개발
-  - 설계
 tags:
   - mermaid
   - diagram

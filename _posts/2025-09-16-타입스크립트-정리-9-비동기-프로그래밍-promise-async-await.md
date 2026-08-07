@@ -3,7 +3,6 @@ title: "타입스크립트 정리 #9 - 비동기 프로그래밍(Promise, async,
 date: 2025-09-16T22:17:00.000+09:00
 categories:
   - 개발
-  - TS
 tags:
   - typescript
   - async

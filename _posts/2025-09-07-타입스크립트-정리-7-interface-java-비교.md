@@ -3,7 +3,6 @@ title: "타입스크립트 정리 #7 - Interface (java 비교)"
 date: 2025-09-08T00:12:00.000+09:00
 categories:
   - 개발
-  - TS
 tags:
   - typescript
 series: "타입스크립트 정리"

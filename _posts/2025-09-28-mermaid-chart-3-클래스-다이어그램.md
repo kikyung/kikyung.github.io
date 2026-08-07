@@ -3,7 +3,6 @@ title: "Mermaid Chart #3 - 클래스 다이어그램"
 date: 2025-09-29T01:04:00.000+09:00
 categories:
   - 개발
-  - 설계
 tags:
   - mermaid
   - diagram

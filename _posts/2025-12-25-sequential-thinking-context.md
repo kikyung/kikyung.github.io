@@ -3,7 +3,6 @@ title: Sequential Thinking & Context
 date: 2025-12-25T23:40:00.000+09:00
 categories:
   - 개발
-  - AI
 tags:
   - MCP
 ---

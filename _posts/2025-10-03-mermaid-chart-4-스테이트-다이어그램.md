@@ -3,7 +3,6 @@ title: "Mermaid Chart #4 - 스테이트 다이어그램"
 date: 2025-10-04T00:37:00.000+09:00
 categories:
   - 개발
-  - 설계
 tags:
   - mermaid
   - diagram

@@ -3,7 +3,6 @@ title: 데코레이터(Decorator) 패턴
 date: 2025-08-24T00:05:00.000+09:00
 categories:
   - 개발
-  - 디자인패턴
 tags:
   - 디자인패턴
 ---

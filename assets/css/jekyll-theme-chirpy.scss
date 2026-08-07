@@ -377,29 +377,29 @@ html[data-mode="dark"] {
 
 /* 기본값/fallback: 미디어 쿼리 미지원 브라우저용 */
 #sidebar {
-  background: linear-gradient(180deg, #f0f2f8 0%, #f6f8fa 100%);
+  background: #f4f6fa;
 }
 
 /* 명시적 Light 모드 (사용자가 Light 토글 선택) */
 html[data-mode="light"] #sidebar {
-  background: linear-gradient(180deg, #f0f2f8 0%, #f6f8fa 100%);
+  background: #f4f6fa;
 }
 
 /* 명시적 Dark 모드 (사용자가 Dark 토글 선택) */
 html[data-mode="dark"] #sidebar {
-  background: linear-gradient(180deg, #1e2030 0%, #1b1b1e 100%);
+  background: #1d1f2a;
 }
 
 /* 시스템 설정 따름 (첫 방문 또는 data-mode 속성 없을 때) */
 @media (prefers-color-scheme: light) {
   html:not([data-mode]) #sidebar {
-    background: linear-gradient(180deg, #f0f2f8 0%, #f6f8fa 100%);
+    background: #f4f6fa;
   }
 }
 
 @media (prefers-color-scheme: dark) {
   html:not([data-mode]) #sidebar {
-    background: linear-gradient(180deg, #1e2030 0%, #1b1b1e 100%);
+    background: #1d1f2a;
   }
 }
 
@@ -415,7 +415,7 @@ html[data-mode="dark"] #sidebar {
 
 #sidebar #avatar img:hover {
   border-color: var(--accent);
-  transform: scale(1.04);
+  transform: none;
 }
 
 /* Active nav item accent bar */
@@ -459,7 +459,7 @@ html[data-mode="dark"] #sidebar {
 
 #sidebar .sidebar-bottom a:hover {
   color: var(--accent) !important;
-  transform: translateY(-2px);
+  transform: none;
 }
 
 /* ----------------------------------------------------------
@@ -477,8 +477,8 @@ html[data-mode="dark"] #sidebar {
 }
 
 #post-list .card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08), 0 3px 10px rgba(0, 0, 0, 0.04);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   border-color: var(--accent-border);
 }
 
@@ -534,7 +534,7 @@ a.tag {
 a.tag:hover {
   background: var(--accent) !important;
   color: white !important;
-  transform: translateY(-1px);
+  transform: none;
 }
 
 /* Category links */
@@ -681,7 +681,7 @@ div[class^="language-"] .code-header {
 .pagination .page-link:hover {
   background: var(--accent-bg);
   color: var(--accent);
-  transform: translateY(-1px);
+  transform: none;
 }
 
 /* ----------------------------------------------------------
@@ -749,7 +749,7 @@ html[data-mode="dark"] ::-webkit-scrollbar-thumb:hover {
 #back-to-top:hover {
   background: var(--accent) !important;
   color: white !important;
-  transform: translateY(-3px);
+  transform: translateY(-1px);
   border-color: var(--accent) !important;
 }
 
@@ -784,7 +784,7 @@ a, button, .btn, .nav-link, .card, input {
 
 .share-wrapper .share-icons a:hover {
   color: var(--accent) !important;
-  transform: scale(1.15);
+  transform: scale(1.03);
 }
 
 /* ----------------------------------------------------------
@@ -795,7 +795,132 @@ a, button, .btn, .nav-link, .card, input {
 }
 
 /* ----------------------------------------------------------
-   35. Mobile 반응형 — 비주얼 조정
+   35. Markdown Editorial Elements — 글의 리듬을 만드는 기본 요소
+   ---------------------------------------------------------- */
+
+/* Callout blocks: use with <div class="note note-tip">...</div> */
+.content .note,
+.content .callout {
+  position: relative;
+  margin: 1.8rem 0;
+  padding: 1rem 1.2rem 1rem 1.35rem;
+  border: 1px solid var(--main-border-color);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  background: var(--accent-bg);
+  color: var(--text-color);
+}
+
+.content .note > :first-child,
+.content .callout > :first-child {
+  margin-top: 0;
+}
+
+.content .note > :last-child,
+.content .callout > :last-child {
+  margin-bottom: 0;
+}
+
+.content .note-title,
+.content .callout-title {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--heading-color);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.content .note-info,
+.content .callout-info {
+  border-left-color: #228be6;
+  background: rgba(34, 139, 230, 0.08);
+}
+
+.content .note-tip,
+.content .callout-tip {
+  border-left-color: #2f9e44;
+  background: rgba(47, 158, 68, 0.08);
+}
+
+.content .note-warning,
+.content .callout-warning {
+  border-left-color: #f08c00;
+  background: rgba(240, 140, 0, 0.09);
+}
+
+.content .note-danger,
+.content .callout-danger {
+  border-left-color: #e03131;
+  background: rgba(224, 49, 49, 0.08);
+}
+
+/* Collapsible supplementary content */
+.content details {
+  margin: 1.6rem 0;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--main-border-color);
+  border-radius: 8px;
+  background: var(--card-bg);
+}
+
+.content details summary {
+  cursor: pointer;
+  color: var(--heading-color);
+  font-weight: 600;
+}
+
+.content details[open] summary {
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--main-border-color);
+}
+
+/* Tables read like data, not a block of text */
+.table-wrapper > table thead th {
+  background: var(--accent-bg);
+  color: var(--heading-color);
+  font-weight: 700;
+}
+
+.table-wrapper > table tbody tr:nth-child(even) {
+  background: rgba(127, 127, 127, 0.035);
+}
+
+/* Images and captions */
+.content figure {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.content figure img {
+  border-radius: 10px;
+}
+
+.content figcaption {
+  margin-top: 0.65rem;
+  color: var(--text-muted-color);
+  font-size: 0.85rem;
+}
+
+/* Task lists */
+.content ul.task-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.content .task-list-item {
+  list-style: none;
+}
+
+.content .task-list-item input[type='checkbox'] {
+  margin-right: 0.45rem;
+  accent-color: var(--accent);
+}
+
+/* ----------------------------------------------------------
+   36. Mobile 반응형 — 비주얼 조정
    ---------------------------------------------------------- */
 @media (max-width: 576px) {
   #post-list .card {

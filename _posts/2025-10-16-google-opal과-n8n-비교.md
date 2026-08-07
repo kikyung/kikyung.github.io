@@ -3,7 +3,6 @@ title: Google Opal과 N8N 비교
 date: 2025-10-17T01:47:00.000+09:00
 categories:
   - 개발
-  - AI
 tags:
   - AI
   - Opal
