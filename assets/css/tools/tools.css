@@ -5,93 +5,62 @@
    ========================================================================== */
 
 /* ==========================================================================
-   1. CSS Custom Properties (Light Mode - Default)
-   Chirpy 테마: html:not([data-mode]) 또는 html[data-mode="light"]
+   1. CSS Custom Properties
+   
+   Chirpy 테마의 미디어 쿼리 구조에 맞춤:
+   @media (prefers-color-scheme: light) {
+     html:not([data-mode]), html[data-mode='light'] → Light 스타일
+     html[data-mode='dark'] → Dark 스타일
+   }
+   @media (prefers-color-scheme: dark) {
+     html:not([data-mode]), html[data-mode='dark'] → Dark 스타일
+     html[data-mode='light'] → Light 스타일
+   }
    ========================================================================== */
 
-:root {
-  /* Tool page colors - Light */
-  --tool-bg: #ffffff;
-  --tool-panel-bg: #f8f9fa;
-  --tool-panel-border: #e9ecef;
-  --tool-input-bg: #ffffff;
-  --tool-input-border: #ced4da;
-  --tool-input-focus-border: #86b7fe;
-  --tool-input-text: #212529;
-  --tool-input-placeholder: #6c757d;
-  --tool-label-color: #495057;
-  --tool-heading-color: var(--heading-color, #2a2a2a);
-  --tool-text-color: var(--text-color, #34343c);
-  --tool-muted-color: var(--text-muted-color, #757575);
-  --tool-link-color: var(--link-color, #0056b2);
-  --tool-btn-bg: #0d6efd;
-  --tool-btn-hover-bg: #0b5ed7;
-  --tool-btn-text: #ffffff;
-  --tool-btn-secondary-bg: #6c757d;
-  --tool-btn-secondary-hover-bg: #5c636a;
-  --tool-card-bg: var(--card-bg, #ffffff);
-  --tool-card-border: #e9ecef;
-  --tool-card-shadow: var(--card-shadow, rgba(104, 104, 104, 0.05) 0 2px 6px 0);
-  --tool-card-hover-bg: #f0f4f8;
-  --tool-code-bg: #f6f8fa;
-  --tool-code-border: #e1e4e8;
-  --tool-code-text: #24292f;
-  --tool-toast-bg: #333333;
-  --tool-toast-text: #ffffff;
-  --tool-error-color: #dc3545;
-  --tool-error-bg: #fff5f5;
-  --tool-success-color: #198754;
-  --tool-highlight-bg: rgba(255, 235, 59, 0.3);
-  --tool-divider-color: #dee2e6;
-  --tool-icon-color: #6c757d;
-  --tool-category-bg: #f0f4f8;
-}
+/* 시스템이 Light 모드일 때 */
+@media (prefers-color-scheme: light) {
+  /* 시스템 따름 또는 명시적 Light 선택 */
+  html:not([data-mode]),
+  html[data-mode="light"] {
+    --tool-bg: #ffffff;
+    --tool-panel-bg: #f8f9fa;
+    --tool-panel-border: #e9ecef;
+    --tool-input-bg: #ffffff;
+    --tool-input-border: #ced4da;
+    --tool-input-focus-border: #86b7fe;
+    --tool-input-text: #212529;
+    --tool-input-placeholder: #6c757d;
+    --tool-label-color: #495057;
+    --tool-heading-color: #2a2a2a;
+    --tool-text-color: #34343c;
+    --tool-muted-color: #757575;
+    --tool-link-color: #0056b2;
+    --tool-btn-bg: #0d6efd;
+    --tool-btn-hover-bg: #0b5ed7;
+    --tool-btn-text: #ffffff;
+    --tool-btn-secondary-bg: #6c757d;
+    --tool-btn-secondary-hover-bg: #5c636a;
+    --tool-card-bg: #ffffff;
+    --tool-card-border: #e9ecef;
+    --tool-card-shadow: rgba(104, 104, 104, 0.05) 0 2px 6px 0;
+    --tool-card-hover-bg: #f0f4f8;
+    --tool-code-bg: #f6f8fa;
+    --tool-code-border: #e1e4e8;
+    --tool-code-text: #24292f;
+    --tool-toast-bg: #333333;
+    --tool-toast-text: #ffffff;
+    --tool-error-color: #dc3545;
+    --tool-error-bg: #fff5f5;
+    --tool-success-color: #198754;
+    --tool-highlight-bg: rgba(255, 235, 59, 0.3);
+    --tool-divider-color: #dee2e6;
+    --tool-icon-color: #6c757d;
+    --tool-category-bg: #f0f4f8;
+  }
 
-/* ==========================================================================
-   2. Dark Mode CSS Variables
-   Chirpy 테마: html[data-mode="dark"]
-   ========================================================================== */
-
-html[data-mode="dark"] {
-  --tool-bg: rgb(27, 27, 30);
-  --tool-panel-bg: #1e1e1e;
-  --tool-panel-border: rgb(44, 45, 45);
-  --tool-input-bg: #2a2a2e;
-  --tool-input-border: #3e3e42;
-  --tool-input-focus-border: rgb(138, 180, 248);
-  --tool-input-text: rgb(175, 176, 177);
-  --tool-input-placeholder: #868686;
-  --tool-label-color: #a7a7a7;
-  --tool-heading-color: #cccccc;
-  --tool-text-color: rgb(175, 176, 177);
-  --tool-muted-color: #868686;
-  --tool-link-color: rgb(138, 180, 248);
-  --tool-btn-bg: #4a8fe7;
-  --tool-btn-hover-bg: #3a7fd7;
-  --tool-btn-text: #ffffff;
-  --tool-btn-secondary-bg: #52565a;
-  --tool-btn-secondary-hover-bg: #6c757d;
-  --tool-card-bg: #1e1e1e;
-  --tool-card-border: rgb(44, 45, 45);
-  --tool-card-shadow: rgba(21, 21, 21, 0.72) 0 6px 18px 0;
-  --tool-card-hover-bg: #2a2d30;
-  --tool-code-bg: #151515;
-  --tool-code-border: #2d2d2d;
-  --tool-code-text: #d0d0d0;
-  --tool-toast-bg: #4a4a4a;
-  --tool-toast-text: #f0f0f0;
-  --tool-error-color: #f08a8b;
-  --tool-error-bg: rgba(220, 53, 69, 0.1);
-  --tool-success-color: #4caf50;
-  --tool-highlight-bg: rgba(255, 235, 59, 0.15);
-  --tool-divider-color: rgb(44, 45, 45);
-  --tool-icon-color: #868686;
-  --tool-category-bg: #252526;
-}
-
-/* prefers-color-scheme dark fallback (Chirpy uses this when no data-mode set) */
-@media (prefers-color-scheme: dark) {
-  html:not([data-mode]) {
+  /* 명시적 Dark 선택 (시스템은 Light지만 사용자가 Dark 토글) */
+  html[data-mode="dark"] {
     --tool-bg: rgb(27, 27, 30);
     --tool-panel-bg: #1e1e1e;
     --tool-panel-border: rgb(44, 45, 45);
@@ -126,6 +95,86 @@ html[data-mode="dark"] {
     --tool-divider-color: rgb(44, 45, 45);
     --tool-icon-color: #868686;
     --tool-category-bg: #252526;
+  }
+}
+
+/* 시스템이 Dark 모드일 때 */
+@media (prefers-color-scheme: dark) {
+  /* 시스템 따름 또는 명시적 Dark 선택 */
+  html:not([data-mode]),
+  html[data-mode="dark"] {
+    --tool-bg: rgb(27, 27, 30);
+    --tool-panel-bg: #1e1e1e;
+    --tool-panel-border: rgb(44, 45, 45);
+    --tool-input-bg: #2a2a2e;
+    --tool-input-border: #3e3e42;
+    --tool-input-focus-border: rgb(138, 180, 248);
+    --tool-input-text: rgb(175, 176, 177);
+    --tool-input-placeholder: #868686;
+    --tool-label-color: #a7a7a7;
+    --tool-heading-color: #cccccc;
+    --tool-text-color: rgb(175, 176, 177);
+    --tool-muted-color: #868686;
+    --tool-link-color: rgb(138, 180, 248);
+    --tool-btn-bg: #4a8fe7;
+    --tool-btn-hover-bg: #3a7fd7;
+    --tool-btn-text: #ffffff;
+    --tool-btn-secondary-bg: #52565a;
+    --tool-btn-secondary-hover-bg: #6c757d;
+    --tool-card-bg: #1e1e1e;
+    --tool-card-border: rgb(44, 45, 45);
+    --tool-card-shadow: rgba(21, 21, 21, 0.72) 0 6px 18px 0;
+    --tool-card-hover-bg: #2a2d30;
+    --tool-code-bg: #151515;
+    --tool-code-border: #2d2d2d;
+    --tool-code-text: #d0d0d0;
+    --tool-toast-bg: #4a4a4a;
+    --tool-toast-text: #f0f0f0;
+    --tool-error-color: #f08a8b;
+    --tool-error-bg: rgba(220, 53, 69, 0.1);
+    --tool-success-color: #4caf50;
+    --tool-highlight-bg: rgba(255, 235, 59, 0.15);
+    --tool-divider-color: rgb(44, 45, 45);
+    --tool-icon-color: #868686;
+    --tool-category-bg: #252526;
+  }
+
+  /* 명시적 Light 선택 (시스템은 Dark지만 사용자가 Light 토글) */
+  html[data-mode="light"] {
+    --tool-bg: #ffffff;
+    --tool-panel-bg: #f8f9fa;
+    --tool-panel-border: #e9ecef;
+    --tool-input-bg: #ffffff;
+    --tool-input-border: #ced4da;
+    --tool-input-focus-border: #86b7fe;
+    --tool-input-text: #212529;
+    --tool-input-placeholder: #6c757d;
+    --tool-label-color: #495057;
+    --tool-heading-color: #2a2a2a;
+    --tool-text-color: #34343c;
+    --tool-muted-color: #757575;
+    --tool-link-color: #0056b2;
+    --tool-btn-bg: #0d6efd;
+    --tool-btn-hover-bg: #0b5ed7;
+    --tool-btn-text: #ffffff;
+    --tool-btn-secondary-bg: #6c757d;
+    --tool-btn-secondary-hover-bg: #5c636a;
+    --tool-card-bg: #ffffff;
+    --tool-card-border: #e9ecef;
+    --tool-card-shadow: rgba(104, 104, 104, 0.05) 0 2px 6px 0;
+    --tool-card-hover-bg: #f0f4f8;
+    --tool-code-bg: #f6f8fa;
+    --tool-code-border: #e1e4e8;
+    --tool-code-text: #24292f;
+    --tool-toast-bg: #333333;
+    --tool-toast-text: #ffffff;
+    --tool-error-color: #dc3545;
+    --tool-error-bg: #fff5f5;
+    --tool-success-color: #198754;
+    --tool-highlight-bg: rgba(255, 235, 59, 0.3);
+    --tool-divider-color: #dee2e6;
+    --tool-icon-color: #6c757d;
+    --tool-category-bg: #f0f4f8;
   }
 }
 
