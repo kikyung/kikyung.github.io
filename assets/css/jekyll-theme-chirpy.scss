@@ -357,49 +357,47 @@ html[data-mode="dark"] {
    19. Sidebar — 생기 있는 네비게이션
    ---------------------------------------------------------- */
 
-/* 
- * Light/Dark Mode Sidebar Background
- * 
- * CSS 선택자 우선순위:
- * 1. html[data-mode="light"] #sidebar - 명시적 Light 모드 (특이성: 0,2,0)
- * 2. html[data-mode="dark"] #sidebar  - 명시적 Dark 모드 (특이성: 0,2,0)
- * 3. html:not([data-mode]) #sidebar   - 시스템 설정 따름 (특이성: 0,2,0)
- * 4. #sidebar                         - 기본값/fallback (특이성: 0,1,0)
+/*
+ * Sidebar Background Color Override
  *
- * 동작 원리:
- * - data-mode 속성이 있으면 → 명시적 규칙(1 또는 2)이 적용됨
- * - data-mode 속성이 없으면 → 미디어 쿼리 규칙(3)이 적용됨
- * - 미디어 쿼리 미지원 브라우저 → 기본값(4)이 적용됨
+ * 테마의 CSS 변수 시스템을 따라가면서 커스텀 색상을 적용합니다.
+ * 테마의 _base.scss가 미디어 쿼리 안에서 --sidebar-bg를 설정하므로,
+ * 동일한 구조로 변수만 오버라이드합니다.
  *
- * 참고: html:not([data-mode])는 html[data-mode]와 상호 배타적이므로
- * 특이성이 같아도 동시에 적용되지 않음.
+ * 구조:
+ * @media (prefers-color-scheme: light) {
+ *   html:not([data-mode]), html[data-mode='light'] → Light 스타일
+ *   html[data-mode='dark'] → Dark 스타일
+ * }
+ * @media (prefers-color-scheme: dark) {
+ *   html:not([data-mode]), html[data-mode='dark'] → Dark 스타일
+ *   html[data-mode='light'] → Light 스타일
+ * }
  */
 
-/* 기본값/fallback: 미디어 쿼리 미지원 브라우저용 */
-#sidebar {
-  background: #f4f6fa;
-}
-
-/* 명시적 Light 모드 (사용자가 Light 토글 선택) */
-html[data-mode="light"] #sidebar {
-  background: #f4f6fa;
-}
-
-/* 명시적 Dark 모드 (사용자가 Dark 토글 선택) */
-html[data-mode="dark"] #sidebar {
-  background: #1d1f2a;
-}
-
-/* 시스템 설정 따름 (첫 방문 또는 data-mode 속성 없을 때) */
+/* 시스템이 Light 모드일 때 */
 @media (prefers-color-scheme: light) {
-  html:not([data-mode]) #sidebar {
-    background: #f4f6fa;
+  /* 시스템 따름 또는 명시적 Light 선택 */
+  html:not([data-mode]),
+  html[data-mode="light"] {
+    --sidebar-bg: #f4f6fa;
+  }
+  /* 명시적 Dark 선택 (시스템은 Light지만 사용자가 Dark 토글) */
+  html[data-mode="dark"] {
+    --sidebar-bg: #1d1f2a;
   }
 }
 
+/* 시스템이 Dark 모드일 때 */
 @media (prefers-color-scheme: dark) {
-  html:not([data-mode]) #sidebar {
-    background: #1d1f2a;
+  /* 시스템 따름 또는 명시적 Dark 선택 */
+  html:not([data-mode]),
+  html[data-mode="dark"] {
+    --sidebar-bg: #1d1f2a;
+  }
+  /* 명시적 Light 선택 (시스템은 Dark지만 사용자가 Light 토글) */
+  html[data-mode="light"] {
+    --sidebar-bg: #f4f6fa;
   }
 }
 
