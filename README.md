@@ -6,7 +6,7 @@ Jekyll 기반 개인 블로그입니다.
 
 [Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy) Jekyll Theme를 사용하고 있습니다.
 
-## 참조
+## 참조 
 
 - [테마 문서](https://github.com/cotes2020/jekyll-theme-chirpy/wiki)
 - [테마 저장소](https://github.com/cotes2020/jekyll-theme-chirpy)
